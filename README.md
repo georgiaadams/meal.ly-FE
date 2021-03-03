@@ -4,7 +4,7 @@
 
 ### Description
 
-This is an app that helps to reduce food waste. Everyday restaurants and supermarkets are throwing away tons of edible food. The app connects food providers such as restaurants and supermarkets that can give away the food they have left and end users, which would be people in need.
+This is an app that helps to reduce food waste. Everyday restaurants and supermarkets are throwing away tons of edible food. The app connects food providers such as restaurants and supermarkets to people in need, so they can give away the food they have left.
 
 
 
