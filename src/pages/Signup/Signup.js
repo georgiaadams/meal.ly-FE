@@ -5,22 +5,22 @@ import { withAuth } from "./../../context/auth-context";
 class Signup extends Component {
   state = {
     companyName: "",
+    address: "",
+    phoneNumber: 0,
     email: "",
     password: "",
-    phoneNumber: 0,
-    address: "",
   };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { companyName, email, password, phoneNumber, address } = this.state;
+    const { companyName, address, phoneNumber, email, password } = this.state;
 
     this.props.providerSignup(
       companyName,
-      email,
-      password,
+      address,
       phoneNumber,
-      address
+      email,
+      password
     );
   };
 
@@ -30,7 +30,7 @@ class Signup extends Component {
   };
 
   render() {
-    const { companyName, email, password, phoneNumber, address } = this.state;
+    const { companyName, address, phoneNumber, email, password } = this.state;
     return (
       <div>
         <h1>Sign Up</h1>
@@ -43,7 +43,28 @@ class Signup extends Component {
             value={companyName}
             onChange={this.handleChange}
           />
-          <br/>
+
+          <br />
+
+          <label>Address:</label>
+          <input
+            type="text"
+            name="address"
+            value={address}
+            onChange={this.handleChange}
+          />
+
+          <br />
+
+          <label>Phone Number:</label>
+          <input
+            type="number"
+            name="phoneNumber"
+            value={phoneNumber}
+            onChange={this.handleChange}
+          />
+
+          <br />
 
           <label>Email:</label>
           <input
@@ -53,6 +74,8 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
           <br/>
+
+          <br />
 
           <label>Password:</label>
           <input
@@ -80,6 +103,8 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
           <br/>
+
+          <br />
 
           <input type="submit" value="Signup" />
         </form>

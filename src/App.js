@@ -11,15 +11,18 @@ import UserLogin from "./pages/Login/UserLogin";
 import Private from "./pages/Private/Private";
 
 // Components
-import Navbar from "./components/Navbar/Navbar";
+// import Navbar from "./components/Navbar/Navbar";
+
 import AnonRoute from "./components/AnonRoute/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import UserNavbar from "./components/Navbar/UserNavbar";
 
 class App extends Component {
   render() {
     return (
       <div className="container">
-        <Navbar />
+        {/* <Navbar /> */}
+        <UserNavbar />
 
         <Switch>
           <Route exact path="/" component={Home} />
