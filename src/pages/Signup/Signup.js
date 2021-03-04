@@ -7,15 +7,21 @@ class Signup extends Component {
     companyName: "",
     email: "",
     password: "",
-    phoneNumber: null,
+    phoneNumber: 0,
     address: "",
   };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { companyName, phoneNumber, address, email, password } = this.state;
+    const { companyName, email, password, phoneNumber, address } = this.state;
 
-    this.props.signup(companyName, phoneNumber, address, email, password);
+    this.props.providerSignup(
+      companyName,
+      email,
+      password,
+      phoneNumber,
+      address
+    );
   };
 
   handleChange = (event) => {
@@ -24,7 +30,7 @@ class Signup extends Component {
   };
 
   render() {
-    const { companyName, phoneNumber, address, email, password } = this.state;
+    const { companyName, email, password, phoneNumber, address } = this.state;
     return (
       <div>
         <h1>Sign Up</h1>
@@ -37,22 +43,7 @@ class Signup extends Component {
             value={companyName}
             onChange={this.handleChange}
           />
-
-          <label>Address:</label>
-          <input
-            type="text"
-            name="address"
-            value={address}
-            onChange={this.handleChange}
-          />
-
-          <label>Phone Number:</label>
-          <input
-            type="number"
-            name="phoneNumber"
-            value={phoneNumber}
-            onChange={this.handleChange}
-          />
+          <br/>
 
           <label>Email:</label>
           <input
@@ -61,6 +52,7 @@ class Signup extends Component {
             value={email}
             onChange={this.handleChange}
           />
+          <br/>
 
           <label>Password:</label>
           <input
@@ -69,6 +61,25 @@ class Signup extends Component {
             value={password}
             onChange={this.handleChange}
           />
+          <br/>
+
+          <label>Phone Number:</label>
+          <input
+            type="number"
+            name="phoneNumber"
+            value={phoneNumber}
+            onChange={this.handleChange}
+          />
+          <br/>
+
+          <label>Address:</label>
+          <input
+            type="text"
+            name="address"
+            value={address}
+            onChange={this.handleChange}
+          />
+          <br/>
 
           <input type="submit" value="Signup" />
         </form>

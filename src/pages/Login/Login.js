@@ -8,7 +8,7 @@ class Login extends Component {
     event.preventDefault();
     const { email, password } = this.state;
     // Call function coming from AuthProvider ( via withAuth )
-    this.props.login(email, password);
+    this.props.providerLogin(email, password);
   };
 
   handleChange = (event) => {
