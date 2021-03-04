@@ -9,7 +9,7 @@ class UserSignup extends Component {
     event.preventDefault();
     const { firstName, lastName, email, password } = this.state;
 
-    this.props.signup(firstName, lastName, email, password);
+    this.props.userSignup(firstName, lastName, email, password);
   };
 
   handleChange = (event) => {
@@ -27,7 +27,7 @@ class UserSignup extends Component {
           <label>Firstname:</label>
           <input
             type="text"
-            name="firstname"
+            name="firstName"
             value={firstName}
             onChange={this.handleChange}
           />
@@ -35,7 +35,7 @@ class UserSignup extends Component {
           <label>Lastname:</label>
           <input
             type="text"
-            name="lastname"
+            name="lastName"
             value={lastName}
             onChange={this.handleChange}
           />

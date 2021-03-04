@@ -7,7 +7,7 @@ class Signup extends Component {
     companyName: "",
     email: "",
     password: "",
-    phoneNumber: 0,
+    phoneNumber: null,
     address: "",
   };
 
@@ -33,7 +33,7 @@ class Signup extends Component {
           <label>Company Name:</label>
           <input
             type="text"
-            name="companyname"
+            name="companyName"
             value={companyName}
             onChange={this.handleChange}
           />
@@ -49,7 +49,7 @@ class Signup extends Component {
           <label>Phone Number:</label>
           <input
             type="number"
-            name="phonenumber"
+            name="phoneNumber"
             value={phoneNumber}
             onChange={this.handleChange}
           />
