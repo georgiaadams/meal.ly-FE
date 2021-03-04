@@ -1,12 +1,7 @@
 import axios from "axios";
 
-// THIS IS AN EXAMPLE THAT YOU CAN USE
-// TO CREATE A SERVICE FOR YOUR AXIOS CALLS
-
-class ExampleService {
+class DataService {
   constructor() {
-    // this.api  is a reusable axios request base containing the base url (baseURL)
-    // of the API and the Headers options ( `withCredentials: true` )
     this.api = axios.create({
       baseURL: "http://localhost:5000/api",
       withCredentials: true,
@@ -32,15 +27,13 @@ class ExampleService {
 
     return pr;
   };
-
-  deleteOffer = (id) => {
-    const pr = this.api.delete(`/provider/offers/${id}`);
+  editOffer = (id) => {
+    const pr = this.api.put(`/provider/offers/${id}`);
 
     return pr;
   };
-
-  editOffer = (id) => {
-    const pr = this.api.put(`/provider/offers/${id}`);
+  deleteOffer = (id) => {
+    const pr = this.api.delete(`/provider/offers/${id}`);
 
     return pr;
   };
@@ -53,8 +46,8 @@ class ExampleService {
     return pr;
   };
 
-  getCompletedOffersUser = () => {
-    const pr = this.api.get("/user/offers/status/completed");
+  getOneOfferUser = (id) => {
+    const pr = this.api.get(`user/offers/${id}`);
 
     return pr;
   };
@@ -65,15 +58,15 @@ class ExampleService {
     return pr;
   };
 
-  getOneOfferUser = (id) => {
-    const pr = this.api.get(`user/offers/${id}`);
+  getCompletedOffersUser = () => {
+    const pr = this.api.get("/user/offers/status/completed");
 
     return pr;
   };
 }
 
 // Create instance (object) containing all axios calls as methods
-const exampleService = new ExampleService();
+const exampleService = new DataService();
 
 export default exampleService;
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "./../../context/auth-context";
 
-class Navbar extends Component {
+class UserNavbar extends Component {
   render() {
     // const { user, logout, isLoggedin } = this.props;
     return (
@@ -12,7 +12,7 @@ class Navbar extends Component {
         </Link>
         {this.props.isLoggedIn ? (
           <>
-            <p>{this.props.user && this.props.user.companyName}</p>
+            <p>{this.props.user && this.props.user.firstName}</p>
             <button onClick={this.props.logout}>Logout</button>
           </>
         ) : (
@@ -31,4 +31,4 @@ class Navbar extends Component {
   }
 }
 
-export default withAuth(Navbar);
+export default withAuth(UserNavbar);

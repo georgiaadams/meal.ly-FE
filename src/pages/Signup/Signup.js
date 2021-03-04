@@ -5,17 +5,23 @@ import { withAuth } from "./../../context/auth-context";
 class Signup extends Component {
   state = {
     companyName: "",
+    address: "",
+    phoneNumber: 0,
     email: "",
     password: "",
-    phoneNumber: null,
-    address: "",
   };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { companyName, phoneNumber, address, email, password } = this.state;
+    const { companyName, address, phoneNumber, email, password } = this.state;
 
-    this.props.signup(companyName, phoneNumber, address, email, password);
+    this.props.providerSignup(
+      companyName,
+      address,
+      phoneNumber,
+      email,
+      password
+    );
   };
 
   handleChange = (event) => {
@@ -24,7 +30,7 @@ class Signup extends Component {
   };
 
   render() {
-    const { companyName, phoneNumber, address, email, password } = this.state;
+    const { companyName, address, phoneNumber, email, password } = this.state;
     return (
       <div>
         <h1>Sign Up</h1>
@@ -38,6 +44,8 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
 
+          <br />
+
           <label>Address:</label>
           <input
             type="text"
@@ -45,6 +53,8 @@ class Signup extends Component {
             value={address}
             onChange={this.handleChange}
           />
+
+          <br />
 
           <label>Phone Number:</label>
           <input
@@ -54,6 +64,8 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
 
+          <br />
+
           <label>Email:</label>
           <input
             type="email"
@@ -62,6 +74,8 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
 
+          <br />
+
           <label>Password:</label>
           <input
             type="password"
@@ -69,6 +83,8 @@ class Signup extends Component {
             value={password}
             onChange={this.handleChange}
           />
+
+          <br />
 
           <input type="submit" value="Signup" />
         </form>
