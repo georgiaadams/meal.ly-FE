@@ -8,18 +8,18 @@ class AuthService {
     });
   }
 
-  signup( username, password ) {
+  signup( email, password ) {
     const pr = this.auth
-      .post("/auth/signup", { username, password })
+      .post("/auth/signup", { email, password })
       .then((response) => response.data);
       // .then(({ data }) => data); // Shorter way of `.then((response) => response.data);`
 
     return pr;
   }
 
-  login( username, password ) {
+  login( email, password ) {
     const pr = this.auth
-      .post("/auth/login", { username, password })
+      .post("/auth/login", { email, password })
       .then((response) => response.data);
       
     return pr;

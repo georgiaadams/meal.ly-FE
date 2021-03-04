@@ -13,26 +13,60 @@ class ExampleService {
     });
   }
 
-  getAll = () => {
-    const pr = this.api.get("/example");
+  //PROVIDER ROUTES
+
+  getAllOffersProvider = () => {
+    const pr = this.api.get("/provider/offers");
 
     return pr;
   };
 
-  getOne = (id) => {
-    const pr = this.api.get(`/example/${id}`);
+  getOneOfferProvider = (id) => {
+    const pr = this.api.get(`/provider/offers/${id}`);
 
     return pr;
   };
 
-  create = (data) => {
-    const pr = this.api.post(`/example/${id}`, data);
+  createOffer = (data) => {
+    const pr = this.api.post(`/provider/offers/${id}`, data);
 
     return pr;
   };
 
-  deleteOne = (id) => {
-    const pr = this.api.delete(`/example/${id}`);
+  deleteOffer = (id) => {
+    const pr = this.api.delete(`/provider/offers/${id}`);
+
+    return pr;
+  };
+
+  editOffer = (id) => {
+    const pr = this.api.put(`/provider/offers/${id}`);
+
+    return pr;
+  };
+
+  //USER ROUTES
+
+  getOffersUser = () => {
+    const pr = this.api.get("/user/offers/status/new");
+
+    return pr;
+  };
+
+  getCompletedOffersUser = () => {
+    const pr = this.api.get("/user/offers/status/completed");
+
+    return pr;
+  };
+
+  getPendingOffersUser = () => {
+    const pr = this.api.get("user/offers/status/ready-requested");
+
+    return pr;
+  };
+
+  getOneOfferUser = (id) => {
+    const pr = this.api.get(`user/offers/${id}`);
 
     return pr;
   };

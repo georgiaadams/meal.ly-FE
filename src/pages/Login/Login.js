@@ -6,9 +6,9 @@ class Login extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { username, password } = this.state;
+    const { email, password } = this.state;
     // Call function coming from AuthProvider ( via withAuth )
-    this.props.login(username, password);
+    this.props.login(email, password);
   };
 
   handleChange = event => {
@@ -17,7 +17,7 @@ class Login extends Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
 
     return (
       <div>
@@ -25,8 +25,8 @@ class Login extends Component {
 
         <form onSubmit={this.handleFormSubmit}>
           
-          <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={this.handleChange}/>
+          <label>Email:</label>
+          <input type="email" name="email" value={email} onChange={this.handleChange}/>
 
           <label>Password:</label>
           <input type="password" name="password" value={password} onChange={this.handleChange} />
