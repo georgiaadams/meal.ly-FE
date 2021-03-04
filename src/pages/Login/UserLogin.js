@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withAuth } from "./../../context/auth-context";
 
-class Login extends Component {
+class UserLogin extends Component {
   state = { email: "", password: "" };
 
   handleFormSubmit = (event) => {
@@ -21,7 +21,7 @@ class Login extends Component {
 
     return (
       <div>
-        <h1>Login</h1>
+        <h1>User Login</h1>
 
         <form onSubmit={this.handleFormSubmit}>
           <label>Email:</label>
@@ -47,4 +47,4 @@ class Login extends Component {
   }
 }
 
-export default withAuth(Login);
+export default withAuth(UserLogin);

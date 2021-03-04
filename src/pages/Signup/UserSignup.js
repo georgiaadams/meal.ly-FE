@@ -2,20 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "./../../context/auth-context";
 
-class Signup extends Component {
-  state = {
-    companyName: "",
-    email: "",
-    password: "",
-    phoneNumber: 0,
-    address: "",
-  };
+class UserSignup extends Component {
+  state = { firstName: "", lastName: "", email: "", password: "" };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { companyName, phoneNumber, address, email, password } = this.state;
+    const { firstName, lastName, email, password } = this.state;
 
-    this.props.signup(companyName, phoneNumber, address, email, password);
+    this.props.signup(firstName, lastName, email, password);
   };
 
   handleChange = (event) => {
@@ -24,33 +18,25 @@ class Signup extends Component {
   };
 
   render() {
-    const { companyName, phoneNumber, address, email, password } = this.state;
+    const { firstName, lastName, email, password } = this.state;
     return (
       <div>
-        <h1>Sign Up</h1>
+        <h1>User Sign Up</h1>
 
         <form onSubmit={this.handleFormSubmit}>
-          <label>Company Name:</label>
+          <label>Firstname:</label>
           <input
             type="text"
-            name="companyname"
-            value={companyName}
+            name="firstname"
+            value={firstName}
             onChange={this.handleChange}
           />
 
-          <label>Address:</label>
+          <label>Lastname:</label>
           <input
             type="text"
-            name="address"
-            value={address}
-            onChange={this.handleChange}
-          />
-
-          <label>Phone Number:</label>
-          <input
-            type="number"
-            name="phonenumber"
-            value={phoneNumber}
+            name="lastname"
+            value={lastName}
             onChange={this.handleChange}
           />
 
@@ -74,13 +60,10 @@ class Signup extends Component {
         </form>
 
         <p>Already have account?</p>
-        <Link to={"/login"}> Login</Link>
+        <Link to={"/user/login"}> Login</Link>
       </div>
     );
   }
 }
 
-export default withAuth(Signup);
-
-// const EnhancedSignup = withAuth(Signup)
-// export default EnhancedSignup;
+export default withAuth(UserSignup);
