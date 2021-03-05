@@ -18,7 +18,7 @@ import ProviderHomepage from "./pages/ProviderHomepage/ProviderHomepage";
 import ProviderEditOffer from "./pages/ProviderEditOffer/ProviderEditOffer";
 import ProviderNewOffer from "./pages/ProviderNewOffer/ProviderNewOffer";
 import ProviderOfferDetails from "./pages/ProviderOfferDetails/ProviderOfferDetails";
-import ProviderRequests from "./pages/ProviderRequests/ProviderRequests";
+import ProviderOffers from "./pages/ProviderOffers/ProviderOffers";
 
 import AnonRoute from "./components/AnonRoute/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -61,7 +61,7 @@ class App extends Component {
           <PrivateRoute
             exact
             path="/provider/offers"
-            component={ProviderRequests}
+            component={ProviderOffers}
           />
           <PrivateRoute exact path="/user/homepage" component={UserHome} />
           <PrivateRoute exact path="/user/offers" component={UserOffers} />
