@@ -8,15 +8,17 @@ class UserService {
     });
   }
   getOffersUser = () => {
-    const pr = this.api.get("/user/offers/status/new");
+    const pr = this.api.get("/user/offers/status/new").then(({ data }) => data);
     return pr;
   };
   getOneOfferUser = (id) => {
-    const pr = this.api.get(`user/offers/${id}`);
+    const pr = this.api.get(`user/offers/${id}`).then(({ data }) => data);
     return pr;
   };
   getPendingOffersUser = () => {
-    const pr = this.api.get("user/offers/status/ready-requested");
+    const pr = this.api
+      .get("user/offers/status/ready-requested")
+      .then(({ data }) => data);
     return pr;
   };
   getCompletedOffersUser = () => {

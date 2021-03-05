@@ -1,5 +1,6 @@
 import React from "react";
 import userService from "../../services/user-service";
+import { Link } from "react-router-dom";
 
 class AllOffers extends React.Component {
   state = {
@@ -9,8 +10,7 @@ class AllOffers extends React.Component {
   componentDidMount() {
     userService
       .getOffersUser()
-      .then((response) => {
-        const data = response.data;
+      .then((data) => {
         this.setState({ allOffers: data });
       })
       .catch((err) => console.log(err));
@@ -23,7 +23,16 @@ class AllOffers extends React.Component {
     return (
       <div>
         {allOffers.map((offers) => {
-          return <p key={offers._id}>{offers.companyName}</p>;
+          return (
+            <div key={offers._id}>
+              <h2>{offers.companyName}</h2>
+              <h3>{offers.address}</h3>
+              <h3>{offers.phoneNumber}</h3>
+              <Link to={`/user/offer/${offers._id}`}>
+                <button>See more</button>
+              </Link>
+            </div>
+          );
         })}
       </div>
     );
