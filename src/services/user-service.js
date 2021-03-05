@@ -7,32 +7,23 @@ class UserService {
       withCredentials: true,
     });
   }
-
   getOffersUser = () => {
     const pr = this.api.get("/user/offers/status/new");
-
     return pr;
   };
-
   getOneOfferUser = (id) => {
     const pr = this.api.get(`user/offers/${id}`);
-
     return pr;
   };
-
   getPendingOffersUser = () => {
     const pr = this.api.get("user/offers/status/ready-requested");
-
     return pr;
   };
-
   getCompletedOffersUser = () => {
     const pr = this.api.get("/user/offers/status/completed");
-
     return pr;
   };
 }
-
 // Create instance (object) containing all axios calls as methods
 const userService = new UserService();
 

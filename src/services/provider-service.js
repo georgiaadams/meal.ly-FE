@@ -1,41 +1,35 @@
 import axios from "axios";
 
-class providerService {
+class ProviderService {
   constructor() {
     this.api = axios.create({
       baseURL: "http://localhost:5000/api",
       withCredentials: true,
     });
   }
-
   getAllOffersProvider = () => {
-    const pr = this.api.get("/provider/offers");
-
+    const pr = this.api.get("/provider/offers")
+    .then((response) => response.data) // res.json()  res.send()
     return pr;
   };
-
   getOneOfferProvider = (id) => {
     const pr = this.api.get(`/provider/offers/${id}`);
-
     return pr;
   };
-
-  createOffer = (data) => {
-    const pr = this.api.post(`/provider/offers/${id}`, data);
-
+  createOffer = (content, quantity, date, pickupSlot, companyName) => {
+    const data = { content, quantity, date, pickupSlot, companyName };
+    const pr = this.api.post("/provider/offers/", data);
     return pr;
   };
   editOffer = (id) => {
     const pr = this.api.put(`/provider/offers/${id}`);
-
     return pr;
   };
   deleteOffer = (id) => {
     const pr = this.api.delete(`/provider/offers/${id}`);
-
     return pr;
   };
 }
-
-const providerService = new providerService();
+const providerService = new ProviderService();
 export default providerService;
+
