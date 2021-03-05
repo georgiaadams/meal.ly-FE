@@ -13,12 +13,13 @@ class ProviderService {
     return pr;
   };
   getOneOfferProvider = (id) => {
-    const pr = this.api.get(`/provider/offers/${id}`);
+    const pr = this.api.get(`/provider/offers/${id}`)
+    .then((response) => response.data)
     return pr;
   };
   createOffer = (content, quantity, date, pickupSlot, companyName) => {
     const data = { content, quantity, date, pickupSlot, companyName };
-    const pr = this.api.post("/provider/offers/", data);
+    const pr = this.api.post("/provider/offers", data);
     return pr;
   };
   editOffer = (id) => {
