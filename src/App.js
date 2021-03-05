@@ -8,7 +8,6 @@ import Signup from "./pages/Signup/Signup";
 import UserSignup from "./pages/Signup/UserSignup";
 import Login from "./pages/Login/Login";
 import UserLogin from "./pages/Login/UserLogin";
-import Private from "./pages/Private/Private";
 import UserHome from "./pages/UserHome/Homepage";
 import UserCompleted from "./pages/UserCompleted/CompletedOffers";
 import UserOfferDetails from "./pages/UserOfferDetails/OfferDetails";
@@ -43,7 +42,6 @@ class App extends Component {
           <AnonRoute exact path="/user/signup" component={UserSignup} />
           <AnonRoute exact path="/user/login" component={UserLogin} />
 
-          <PrivateRoute exact path="/private" component={Private} />
           <PrivateRoute
             exact
             path="/provider/homepage"
@@ -68,7 +66,7 @@ class App extends Component {
             exact
             path="/provider/offers"
             component={ProviderRequests}
-            />
+          />
           <PrivateRoute exact path="/user/homepage" component={UserHome} />
           <PrivateRoute exact path="/user/offers" component={UserOffers} />
           <PrivateRoute

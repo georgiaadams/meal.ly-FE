@@ -1,4 +1,5 @@
 import React from "react";
+import { withAuth } from "./../../context/auth-context";
 
 function Homepage() {
   return (
@@ -8,4 +9,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default withAuth(Homepage);
