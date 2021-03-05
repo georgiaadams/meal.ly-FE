@@ -86,25 +86,9 @@ class Signup extends Component {
           />
           <br/>
 
-          <label>Phone Number:</label>
-          <input
-            type="number"
-            name="phoneNumber"
-            value={phoneNumber}
-            onChange={this.handleChange}
-          />
-          <br/>
+      
 
-          <label>Address:</label>
-          <input
-            type="text"
-            name="address"
-            value={address}
-            onChange={this.handleChange}
-          />
-          <br/>
-
-          <br />
+       
 
           <input type="submit" value="Signup" />
         </form>

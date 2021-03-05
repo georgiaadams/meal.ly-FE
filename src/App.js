@@ -10,6 +10,12 @@ import Login from "./pages/Login/Login";
 import UserLogin from "./pages/Login/UserLogin";
 import Private from "./pages/Private/Private";
 
+import ProviderHomepage from "./pages/ProviderHomepage/ProviderHomepage";
+import ProviderEditOffer from "./pages/ProviderEditOffer/ProviderEditOffer";
+import ProviderNewOffer from "./pages/ProviderNewOffer/ProviderNewOffer";
+import ProviderOfferDetails from "./pages/ProviderOfferDetails/ProviderOfferDetails";
+import ProviderRequests from "./pages/ProviderRequests/ProviderRequests";
+
 // Components
 // import Navbar from "./components/Navbar/Navbar";
 
@@ -33,6 +39,31 @@ class App extends Component {
           <AnonRoute exact path="/user/login" component={UserLogin} />
 
           <PrivateRoute exact path="/private" component={Private} />
+          <PrivateRoute
+            exact
+            path="/provider/homepage"
+            component={ProviderHomepage}
+          />
+          <PrivateRoute
+            exact
+            path="/provider/offers/new"
+            component={ProviderNewOffer}
+          />
+          <PrivateRoute
+            exact
+            path="/provider/offers/:id"
+            component={ProviderOfferDetails}
+          />
+          <PrivateRoute
+            exact
+            path="/provider/offers/edit/:id"
+            component={ProviderEditOffer}
+          />
+          <PrivateRoute
+            exact
+            path="/provider/offers"
+            component={ProviderRequests}
+          />
         </Switch>
       </div>
     );
