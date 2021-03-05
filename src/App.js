@@ -21,19 +21,15 @@ import ProviderNewOffer from "./pages/ProviderNewOffer/ProviderNewOffer";
 import ProviderOfferDetails from "./pages/ProviderOfferDetails/ProviderOfferDetails";
 import ProviderRequests from "./pages/ProviderRequests/ProviderRequests";
 
-// Components
-// import Navbar from "./components/Navbar/Navbar";
-
 import AnonRoute from "./components/AnonRoute/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import UserNavbar from "./components/Navbar/UserNavbar";
+import Navbar from "./components/Navbar/Navbar";
 
 class App extends Component {
   render() {
     return (
       <div className="container">
-        {/* <Navbar /> */}
-        <UserNavbar />
+        <Navbar />
 
         <Switch>
           <Route exact path="/" component={Home} />
@@ -68,7 +64,7 @@ class App extends Component {
             exact
             path="/provider/offers"
             component={ProviderRequests}
-            />
+          />
           <PrivateRoute exact path="/user/homepage" component={UserHome} />
           <PrivateRoute exact path="/user/offers" component={UserOffers} />
           <PrivateRoute
