@@ -9,6 +9,11 @@ import UserSignup from "./pages/Signup/UserSignup";
 import Login from "./pages/Login/Login";
 import UserLogin from "./pages/Login/UserLogin";
 import Private from "./pages/Private/Private";
+import UserHome from "./pages/UserHome/Homepage";
+import UserCompleted from "./pages/UserCompleted/CompletedOffers";
+import UserOfferDetails from "./pages/UserOfferDetails/OfferDetails";
+import UserOffers from "./pages/UserOffers/AllOffers";
+import UserRequests from "./pages/UserRequests/UserRequests";
 
 import ProviderHomepage from "./pages/ProviderHomepage/ProviderHomepage";
 import ProviderEditOffer from "./pages/ProviderEditOffer/ProviderEditOffer";
@@ -63,6 +68,23 @@ class App extends Component {
             exact
             path="/provider/offers"
             component={ProviderRequests}
+            />
+          <PrivateRoute exact path="/user/homepage" component={UserHome} />
+          <PrivateRoute exact path="/user/offers" component={UserOffers} />
+          <PrivateRoute
+            exact
+            path="/user/offers/:id"
+            component={UserOfferDetails}
+          />
+          <PrivateRoute
+            exact
+            path="/user/offers/pending"
+            component={UserRequests}
+          />
+          <PrivateRoute
+            exact
+            path="/user/offers/completed"
+            component={UserCompleted}
           />
         </Switch>
       </div>

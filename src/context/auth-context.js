@@ -8,23 +8,38 @@ class AuthProvider extends React.Component {
     isLoggedIn: false,
     isLoading: true,
     user: null,
+    isProviderUser: false,
   };
 
   componentDidMount() {
     authService
       .me()
-      .then((user) =>
-        this.setState({ isLoggedIn: true, user: user, isLoading: false })
-      )
+      .then((user) => {
+        const isProviderUser = !!user.companyName;
+        this.setState({
+          isLoggedIn: true,
+          user: user,
+          isLoading: false,
+          isProviderUser,
+        });
+      })
       .catch((err) =>
-        this.setState({ isLoggedIn: false, user: null, isLoading: false })
+        this.setState({
+          isLoggedIn: false,
+          user: null,
+          isLoading: false,
+          isProviderUser: false,
+        })
       );
   }
 
   userSignup = (firstName, lastName, email, password) => {
     authService
       .userSignup(firstName, lastName, email, password)
-      .then((user) => this.setState({ isLoggedIn: true, user }))
+      .then((user) => {
+        const isProviderUser = !!user.companyName;
+        this.setState({ isLoggedIn: true, user: user, isProviderUser });
+      })
       .catch((err) => {
         this.setState({ isLoggedIn: false, user: null });
       });
@@ -33,15 +48,22 @@ class AuthProvider extends React.Component {
   userLogin = (email, password) => {
     authService
       .userLogin(email, password)
-      .then((user) => this.setState({ isLoggedIn: true, user }))
+      .then((user) => {
+        const isProviderUser = !!user.companyName;
+        this.setState({ isLoggedIn: true, user: user, isProviderUser });
+      })
       .catch((err) => {
         this.setState({ isLoggedIn: false, user: null });
       });
   };
 
-  providerSignup = (companyName, email, password, phoneNumber, address) => {
+  providerSignup = (companyName, address, phoneNumber, email, password) => {
     authService
-      .providerSignup(companyName, email, password, phoneNumber, address)
+      .providerSignup(companyName, address, phoneNumber, email, password)
+      .then((user) => {
+        const isProviderUser = !!user.companyName;
+        this.setState({ isLoggedIn: true, user: user, isProviderUser });
+      })
       .then((user) => this.setState({ isLoggedIn: true, user }))
       .catch((err) => {
         this.setState({ isLoggedIn: false, user: null });
@@ -51,6 +73,10 @@ class AuthProvider extends React.Component {
   providerLogin = (email, password) => {
     authService
       .providerLogin(email, password)
+      .then((user) => {
+        const isProviderUser = !!user.companyName;
+        this.setState({ isLoggedIn: true, user: user, isProviderUser });
+      })
       .then((user) => this.setState({ isLoggedIn: true, user }))
       .catch((err) => {
         this.setState({ isLoggedIn: false, user: null });
@@ -60,12 +86,14 @@ class AuthProvider extends React.Component {
   logout = () => {
     authService
       .logout()
-      .then(() => this.setState({ isLoggedIn: false, user: null }))
+      .then(() =>
+        this.setState({ isLoggedIn: false, user: null, isProviderUser: false })
+      )
       .catch((err) => console.log(err));
   };
 
   render() {
-    const { isLoggedIn, isLoading, user } = this.state;
+    const { isLoggedIn, isLoading, user, isProviderUser } = this.state;
     const {
       userSignup,
       userLogin,
@@ -82,6 +110,7 @@ class AuthProvider extends React.Component {
           isLoggedIn,
           isLoading,
           user,
+          isProviderUser,
           userSignup,
           userLogin,
           providerSignup,
@@ -105,6 +134,7 @@ const withAuth = (WrappedComponent) => {
             isLoggedIn,
             isLoading,
             user,
+            isProviderUser,
             userSignup,
             userLogin,
             providerSignup,
@@ -117,6 +147,7 @@ const withAuth = (WrappedComponent) => {
               isLoggedIn={isLoggedIn}
               isLoading={isLoading}
               user={user}
+              isProviderUser={isProviderUser}
               userSignup={userSignup}
               userLogin={userLogin}
               providerSignup={providerSignup}

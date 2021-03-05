@@ -6,7 +6,7 @@ import { withAuth } from "./../../context/auth-context";
 
 function AnonRoute(routeProps) {
   // Value coming from `AuthProvider` ( via `withAuth` )
-  const { isLoggedIn, isLoading } = routeProps;
+  const { isLoggedIn, isLoading, isProviderUser } = routeProps;
 
   // Values coming from the AnonRoute itself
   const ComponentToShow = routeProps.component;
@@ -20,8 +20,13 @@ function AnonRoute(routeProps) {
       exact={exact}
       path={path}
       render={function (props) {
-        if (isLoggedIn) return <Redirect to="/provider/homepage" />;
-        else if (!isLoggedIn) return <ComponentToShow {...props} />;
+        if (isLoggedIn && !isProviderUser) {
+          return <Redirect to="/user/homepage" />;
+        } else if (!isLoggedIn) {
+          return <ComponentToShow {...props} />;
+        } else {
+          return <Redirect to="/provider/homepage" />;
+        }
       }}
     />
   );

@@ -1,12 +1,8 @@
 # FoodSharing App
 
-
-
 ### Description
 
 This is an app that helps to reduce food waste. Everyday restaurants and supermarkets are throwing away tons of edible food. The app connects food providers such as restaurants and supermarkets to people in need, so they can give away the food they have left.
-
-
 
 ### User Stories
 
@@ -40,38 +36,34 @@ This is an app that helps to reduce food waste. Everyday restaurants and superma
 
 - **Logout:** Both users and providers can logout and close their browsing session.
 
-  
-
 ### Backlog
 
 User view:
 
 - Map with all provider locations
-- Searchbar 
+- Searchbar
 
 # Client / Frontend
 
 ## React Router Routes (React App)
 
-| Path                        | Component               | Permissions                | Behavior                                                     |
-| --------------------------- | ----------------------- | -------------------------- | ------------------------------------------------------------ |
-| `/`                         | SplashPage              | public `<Route>`           | Landing page, user and provider login and signup             |
-| `/user/signup`              | UserSignup              | anon only `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup |
-| `/user/login`               | UserLogin               | anon only `<AnonRoute>`    | Login form, navigate to homepage after login                 |
-| `/provider/signup`          | ProviderSignup          | anon only `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup |
-| `/provider/login`           | ProviderLogin           | anon only `<AnonRoute>`    | Login form, navigate to homepage after login                 |
-| `/user/homepage`            | UserHomepage            | user only `<PrivateRoute>` | List of current offers and pending collections               |
-| `/user/offers`              | UserCurrentOffers       | user only `<PrivateRoute>` | List of all current offers                                   |
-| `/user/offers/:id`          | UserOfferDetails        | user only `<PrivateRoute>` | Single offer details and pickup request                      |
-| `/user/offers/pending`      | UserPendingRequests     | user only `<PrivateRoute>` | List of all user's requested and ready offers, "collected" button |
-| `/user/offers/completed`    | UserCompletedOffers     | user only `<PrivateRoute>` | List of all user's completed offers                          |
-| `/provider/homepage`        | ProviderHomepage        | user only `<PrivateRoute>` | "Add a new offer" button, list of requested offers           |
-| `/provider/offers/new`      | ProviderNewOffer        | user only `<PrivateRoute>` | Form to add a new offer                                      |
-| `/provider/offers/:id`      | ProviderOfferDetails    | user only `<PrivateRoute>` | Single offer details and list of pickup requests. Delete/edit offer options. |
-| `/provider/offers/edit/:id` | ProviderEditOffer       | user only `<PrivateRoute>` | Edit offer form                                              |
-| `/provider/offers`          | ProviderPendingRequests | user only `<PrivateRoute>` | List of provider's offers: new, pending collection, requested pickup, completed |
-
-
+| Path                        | Component            | Permissions                | Behavior                                                                        |
+| --------------------------- | -------------------- | -------------------------- | ------------------------------------------------------------------------------- |
+| `/`                         | SplashPage           | public `<Route>`           | Landing page, user and provider login and signup                                |
+| `/user/signup`              | UserSignup           | anon only `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup                   |
+| `/user/login`               | UserLogin            | anon only `<AnonRoute>`    | Login form, navigate to homepage after login                                    |
+| `/provider/signup`          | ProviderSignup       | anon only `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup                   |
+| `/provider/login`           | ProviderLogin        | anon only `<AnonRoute>`    | Login form, navigate to homepage after login                                    |
+| `/user/homepage`            | UserHomepage         | user only `<PrivateRoute>` | List of current offers and pending collections                                  |
+| `/user/offers`              | UserCurrentOffers    | user only `<PrivateRoute>` | List of all current offers                                                      |
+| `/user/offers/:id`          | UserOfferDetails     | user only `<PrivateRoute>` | Single offer details and pickup request                                         |
+| `/user/offers/pending`      | UserRequests         | user only `<PrivateRoute>` | List of all user's requested and ready offers, "collected" button               |
+| `/user/offers/completed`    | UserCompletedOffers  | user only `<PrivateRoute>` | List of all user's completed offers                                             |
+| `/provider/homepage`        | ProviderHomepage     | user only `<PrivateRoute>` | "Add a new offer" button, list of requested offers                              |
+| `/provider/offers/new`      | ProviderNewOffer     | user only `<PrivateRoute>` | Form to add a new offer                                                         |
+| `/provider/offers/:id`      | ProviderOfferDetails | user only `<PrivateRoute>` | Single offer details and list of pickup requests. Delete/edit offer options.    |
+| `/provider/offers/edit/:id` | ProviderEditOffer    | user only `<PrivateRoute>` | Edit offer form                                                                 |
+| `/provider/offers`          | ProviderRequests     | user only `<PrivateRoute>` | List of provider's offers: new, pending collection, requested pickup, completed |
 
 ### Components
 
@@ -83,8 +75,6 @@ User view:
 - Navbar
 - UserHomepage
 - ProviderHomepage
-
-
 
 ### Services
 
@@ -137,28 +127,24 @@ Offer model
 }
 ```
 
-
-
 ## API Endpoints (backend routes)
 
-| HTTP Method | URL                                       | Request Body                                           | Success status | Error Status | Description                                                  |
-| ----------- | ----------------------------------------- | ------------------------------------------------------ | -------------- | ------------ | ------------------------------------------------------------ |
+| HTTP Method | URL                                       | Request Body                                           | Success status | Error Status | Description                                                                                                                     |
+| ----------- | ----------------------------------------- | ------------------------------------------------------ | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
 | POST        | `/auth/signup`                            | {company name, address, phone number, email, password} | 201            | 404          | Checks if fields not empty (400) and user not exists (400), then create user with encrypted password, and store user in session |
 | POST        | `/auth/user/signup`                       | {name, email, password}                                | 201            | 404          | Checks if fields not empty (400) and user not exists (400), then create user with encrypted password, and store user in session |
-| POST        | `/auth/login`                             | {email, password}                                      | 200            | 401          | Checks if fields not empty (400), if user exists (404), and if password matches (401), then stores user in session |
-| POST        | `/auth/user/login`                        | {email, password}                                      | 200            | 401          | Checks if fields not empty (400), if user exists (404), and if password matches (401), then stores user in session |
-| GET         | `/auth/logout`                            | (empty)                                                | 204            | 400          | Logs out the user                                            |
-| GET         | `/api/user/offers/status/new`             |                                                        | 200            | 400          | Show all current offers                                      |
-| GET         | `/api/user/offers/:id`                    | {id}                                                   | 200            | 400          | Show specific offer details                                  |
-| GET         | `/api/user/offers/status/completed`       | {}                                                     | 200            | 400          | Show all user completed offers                               |
-| GET         | `/api/user/offers/status/ready-requested` | {}                                                     | 200            | 400          | Showing all requested and ready offers                       |
-| GET         | `/api/provider/offers`                    | {}                                                     | 200            | 400          | Show all new, requested, ready and completed offers for the current provider |
-| POST        | `/api/provider/offers`                    | {content, quantity, date, pickupSlot, companyName}     | 201            | 404          | Add a new offer                                              |
-| GET         | `/api/provider/offers/:id`                | {id}                                                   | 200            | 400          | Show offer details (it's the same as in the user route)      |
-| PUT         | `/api/provider/offers/:id`                | {id, content, quantity, date, pickupSlot, companyName} | 201            | 400          | edit an offer                                                |
-| DELETE      | `/api/provider/offers/:id`                | (empty)                                                | 201            | 400          | delete an offer                                              |
-
-
+| POST        | `/auth/login`                             | {email, password}                                      | 200            | 401          | Checks if fields not empty (400), if user exists (404), and if password matches (401), then stores user in session              |
+| POST        | `/auth/user/login`                        | {email, password}                                      | 200            | 401          | Checks if fields not empty (400), if user exists (404), and if password matches (401), then stores user in session              |
+| GET         | `/auth/logout`                            | (empty)                                                | 204            | 400          | Logs out the user                                                                                                               |
+| GET         | `/api/user/offers/status/new`             |                                                        | 200            | 400          | Show all current offers                                                                                                         |
+| GET         | `/api/user/offers/:id`                    | {id}                                                   | 200            | 400          | Show specific offer details                                                                                                     |
+| GET         | `/api/user/offers/status/completed`       | {}                                                     | 200            | 400          | Show all user completed offers                                                                                                  |
+| GET         | `/api/user/offers/status/ready-requested` | {}                                                     | 200            | 400          | Showing all requested and ready offers                                                                                          |
+| GET         | `/api/provider/offers`                    | {}                                                     | 200            | 400          | Show all new, requested, ready and completed offers for the current provider                                                    |
+| POST        | `/api/provider/offers`                    | {content, quantity, date, pickupSlot, companyName}     | 201            | 404          | Add a new offer                                                                                                                 |
+| GET         | `/api/provider/offers/:id`                | {id}                                                   | 200            | 400          | Show offer details (it's the same as in the user route)                                                                         |
+| PUT         | `/api/provider/offers/:id`                | {id, content, quantity, date, pickupSlot, companyName} | 201            | 400          | edit an offer                                                                                                                   |
+| DELETE      | `/api/provider/offers/:id`                | (empty)                                                | 201            | 400          | delete an offer                                                                                                                 |
 
 ## Links
 
@@ -170,4 +156,3 @@ https://trello.com/b/hU59tlkJ/project-3
 
 https://github.com/georgiaadams/finalProject
 https://github.com/georgiaadams/finalProjectFE
-
