@@ -8,13 +8,15 @@ class ProviderService {
     });
   }
   getAllOffersProvider = () => {
-    const pr = this.api.get("/provider/offers")
-    .then((response) => response.data) // res.json()  res.send()
+    const pr = this.api
+      .get("/provider/offers")
+      .then((response) => response.data); // res.json()  res.send()
     return pr;
   };
   getOneOfferProvider = (id) => {
-    const pr = this.api.get(`/provider/offers/${id}`)
-    .then((response) => response.data)
+    const pr = this.api
+      .get(`/provider/offers/${id}`)
+      .then((response) => response.data);
     return pr;
   };
   createOffer = (content, quantity, date, pickupSlot, companyName) => {
@@ -23,14 +25,17 @@ class ProviderService {
     return pr;
   };
   editOffer = (id) => {
-    const pr = this.api.put(`/provider/offers/${id}`);
+    const pr = this.api
+      .put(`/provider/offers/${id}`)
+      .then((response) => response.data);
     return pr;
   };
   deleteOffer = (id) => {
-    const pr = this.api.delete(`/provider/offers/${id}`);
+    const pr = this.api
+      .delete(`/provider/offers/${id}`)
+      .then((response) => response.data);
     return pr;
   };
 }
 const providerService = new ProviderService();
 export default providerService;
-

@@ -10,7 +10,7 @@ html, body {
 nav.navbar { 
   display: flex;
   padding: 0px 20px;
-  background: #686de0; 
+  background: rgb(127, 216, 88);
 }
 
 button.navbar-button {

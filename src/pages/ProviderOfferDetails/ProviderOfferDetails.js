@@ -18,6 +18,14 @@ class ProviderOfferDetails extends Component {
       .catch((err) => console.log(err));
   }
 
+  deleteOneOffer = () => {
+    const id = this.props.match.params.id;
+    providerService
+      .deleteOffer(id)
+      .then(() => this.props.history.push("/provider/offers"))
+      .catch((err) => console.log(err));
+  }
+
   render() {
     return (
       <div>
@@ -30,6 +38,7 @@ class ProviderOfferDetails extends Component {
         <Link to={`/provider/offers/edit/${this.state.offer._id}`}>
           <button>Edit</button>
         </Link>
+        <button onClick={this.deleteOneOffer}>Remove offer</button>
       </div>
     );
   }
