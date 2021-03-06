@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import providerService from "../../services/provider-service";
+import { withAuth } from "../../context/auth-context";
 
 class ProviderEditOffer extends Component {
   state = {
@@ -13,18 +14,15 @@ class ProviderEditOffer extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { content, quantity, date, pickupSlot, companyName } = this.state;
+    const { id } = this.props.match.params;
     providerService
-      .editOffer(content, quantity, date, pickupSlot, companyName)
+      .editOffer(
+        id,
+        { content, quantity, date, pickupSlot, companyName },
+        { new: true }
+      )
       .then((data) => {
-        console.log(data);
-        this.setState({
-          companyName: "",
-          content: "",
-          quantity: "",
-          date: new Date().toISOString().substr(0, 10),
-          pickupSlot: "",
-        });
-        this.props.history.push("/provider/offers");
+        // this.props.history.push("/provider/offers");
       })
       .catch((err) => console.log(err));
   };
@@ -86,4 +84,4 @@ class ProviderEditOffer extends Component {
   }
 }
 
-export default ProviderEditOffer;
+export default withAuth(ProviderEditOffer);

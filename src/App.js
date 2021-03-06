@@ -65,11 +65,7 @@ class App extends Component {
           />
           <PrivateRoute exact path="/user/homepage" component={UserHome} />
           <PrivateRoute exact path="/user/offers" component={UserOffers} />
-          <PrivateRoute
-            exact
-            path="/user/offers/:id"
-            component={UserOfferDetails}
-          />
+
           <PrivateRoute
             exact
             path="/user/offers/pending"
@@ -79,6 +75,11 @@ class App extends Component {
             exact
             path="/user/offers/completed"
             component={UserCompleted}
+          />
+          <PrivateRoute
+            exact
+            path="/user/offers/:id"
+            component={UserOfferDetails}
           />
         </Switch>
       </div>

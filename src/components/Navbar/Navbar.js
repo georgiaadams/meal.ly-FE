@@ -12,29 +12,21 @@ class Navbar extends Component {
           to={isProviderUser ? "/provider/homepage" : "/user/homepage"}
           id="home-btn"
         >
-          <h4>Home</h4>
+          <h2>Home</h2>
         </Link>
         {isLoggedIn ? (
           <>
-            <p>{user && user.companyName}</p>
-            <img
+            <p>{user && user.firstName}</p>
+            {/* <img
               src="/profileIcon.png"
               alt="profile"
               width="30px"
               height="30px"
-            />
+            /> */}
             <button onClick={logout}>Logout</button>
           </>
         ) : (
-          <>
-            <Link to="/login">
-              <button className="navbar-button">Login</button>{" "}
-            </Link>
-            <br />
-            <Link to="/signup">
-              <button className="navbar-button">Sign Up</button>{" "}
-            </Link>
-          </>
+          <></>
         )}
       </nav>
     );
