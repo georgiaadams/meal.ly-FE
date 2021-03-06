@@ -25,11 +25,15 @@ class ProviderService {
     return pr;
   };
   editOffer = (id) => {
-    const pr = this.api.put(`/provider/offers/${id}`);
+    const pr = this.api
+      .put(`/provider/offers/${id}`)
+      .then((response) => response.data);
     return pr;
   };
   deleteOffer = (id) => {
-    const pr = this.api.delete(`/provider/offers/${id}`);
+    const pr = this.api
+      .delete(`/provider/offers/${id}`)
+      .then((response) => response.data);
     return pr;
   };
 }

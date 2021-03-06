@@ -14,6 +14,27 @@ class Navbar extends Component {
         >
           <h2>Home</h2>
         </Link>
+        <img src="https://res.cloudinary.com/skillbees/image/upload/v1615051038/Meal.ly/logo_omac4x.png" />
+
+        {/* if (isLoggedIn && !isProviderUser) {
+      <div> <p>{user && user.firstName}</p>
+        <button onClick={logout}>Logout</button> </div>
+    } else if (isLoggedIn && isProviderUser) {
+
+    <div> <p>{user && user.companyName}</p>
+        <button onClick={logout}>Logout</button> </div>
+    } else {
+     
+      <>
+      <Link to="/login">
+        <button className="navbar-button">Login</button>{" "}
+      </Link>
+      <br />
+      <Link to="/signup">
+        <button className="navbar-button">Sign Up</button>{" "}
+      </Link>
+    </>
+    } */}
         {isLoggedIn ? (
           <>
             <p>{user && user.firstName}</p>

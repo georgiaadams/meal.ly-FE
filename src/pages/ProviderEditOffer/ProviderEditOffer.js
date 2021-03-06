@@ -13,16 +13,20 @@ class ProviderEditOffer extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { content, quantity, date, pickupSlot, companyName } = this.state;
+    const { companyName, content, quantity, date, pickupSlot } = this.state;
     const { id } = this.props.match.params;
+
     providerService
-      .editOffer(
-        id,
-        { content, quantity, date, pickupSlot, companyName },
-        { new: true }
-      )
+      .editOffer(id, { companyName, content, quantity, date, pickupSlot })
       .then((data) => {
-        // this.props.history.push("/provider/offers");
+        this.setState({
+          companyName: "",
+          content: "",
+          quantity: "",
+          date: new Date().toISOString().substr(0, 10),
+          pickupSlot: "",
+        });
+        this.props.history.push("/provider/offers");
       })
       .catch((err) => console.log(err));
   };
@@ -36,7 +40,7 @@ class ProviderEditOffer extends Component {
     return (
       <div>
         <h1>Edit your offer</h1>
-        <form>
+        <form onSubmit={this.handleFormSubmit}>
           <label>Name of your company:</label>
           <input
             type="text"
@@ -77,7 +81,7 @@ class ProviderEditOffer extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <button onClick={this.handleFormSubmit}>Submit</button>
+          <input type="submit" value="Submit" />
         </form>
       </div>
     );
