@@ -8,13 +8,21 @@ class ProviderNewOffer extends Component {
     quantity: "",
     date: new Date().toISOString().substr(0, 10),
     pickupSlot: "",
+    image: "",
   };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { content, quantity, date, pickupSlot, companyName } = this.state;
+    const {
+      content,
+      quantity,
+      date,
+      pickupSlot,
+      companyName,
+      image,
+    } = this.state;
     providerService
-      .createOffer(content, quantity, date, pickupSlot, companyName)
+      .createOffer(content, quantity, date, pickupSlot, companyName, image)
       .then((data) => {
         console.log(data);
         this.setState({
@@ -23,6 +31,7 @@ class ProviderNewOffer extends Component {
           quantity: "",
           date: new Date().toISOString().substr(0, 10),
           pickupSlot: "",
+          image: "",
         });
         this.props.history.push("/provider/offers");
       })

@@ -23,7 +23,6 @@ class OfferCard extends Component {
               <h3>Business: {offers.companyName}</h3>
               <h3>Content: {offers.content}</h3>
               <h3>Quantity: {offers.quantity}</h3>
-              <h3></h3>
             </div>
           );
         })}

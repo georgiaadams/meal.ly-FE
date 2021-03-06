@@ -8,17 +8,19 @@ class ProviderService {
     });
   }
   getAllOffersProvider = () => {
-    const pr = this.api.get("/provider/offers")
-    .then((response) => response.data) // res.json()  res.send()
+    const pr = this.api
+      .get("/provider/offers")
+      .then((response) => response.data); // res.json()  res.send()
     return pr;
   };
   getOneOfferProvider = (id) => {
-    const pr = this.api.get(`/provider/offers/${id}`)
-    .then((response) => response.data)
+    const pr = this.api
+      .get(`/provider/offers/${id}`)
+      .then((response) => response.data);
     return pr;
   };
-  createOffer = (content, quantity, date, pickupSlot, companyName) => {
-    const data = { content, quantity, date, pickupSlot, companyName };
+  createOffer = (content, quantity, date, pickupSlot, companyName, image) => {
+    const data = { content, quantity, date, pickupSlot, companyName, image };
     const pr = this.api.post("/provider/offers", data);
     return pr;
   };
@@ -33,4 +35,3 @@ class ProviderService {
 }
 const providerService = new ProviderService();
 export default providerService;
-

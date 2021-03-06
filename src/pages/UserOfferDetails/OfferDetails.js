@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import userService from "../../services/user-service";
+import { Link } from "react-router-dom";
 // import { withAuth } from "../../context/auth-context";
+import PickupRequest from "../../components/PickupRequest/PickupRequest";
 
-class UserOfferDetails extends Component {
+class OfferDetails extends Component {
   state = {
     oneOffer: [],
   };
@@ -28,9 +30,15 @@ class UserOfferDetails extends Component {
         <h3>{oneOffer.address}</h3>
         <h3>{oneOffer.phoneNumber}</h3>
         <h3>{oneOffer.content}</h3>
+        <PickupRequest />
+        <div>
+          <Link to={"/user/offers"}>
+            <button>Go back to all</button>
+          </Link>
+        </div>
       </div>
     );
   }
 }
 
-export default UserOfferDetails;
+export default OfferDetails;

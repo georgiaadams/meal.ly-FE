@@ -16,7 +16,13 @@ class Navbar extends Component {
         </Link>
         {isLoggedIn ? (
           <>
-            <p>{user && user.firstName}</p>
+            <p>{user && user.companyName}</p>
+            <img
+              src="/profileIcon.png"
+              alt="profile"
+              width="30px"
+              height="30px"
+            />
             <button onClick={logout}>Logout</button>
           </>
         ) : (

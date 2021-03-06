@@ -28,7 +28,7 @@ class AllOffers extends React.Component {
               <h2>{offers.companyName}</h2>
               <h3>{offers.address}</h3>
               <h3>{offers.phoneNumber}</h3>
-              <Link to={`/user/offer/${offers._id}`}>
+              <Link to={`/user/offers/${offers._id}`}>
                 <button>See more</button>
               </Link>
             </div>

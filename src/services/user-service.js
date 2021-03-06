@@ -22,7 +22,9 @@ class UserService {
     return pr;
   };
   getCompletedOffersUser = () => {
-    const pr = this.api.get("/user/offers/status/completed");
+    const pr = this.api
+      .get("/user/offers/status/completed")
+      .then(({ data }) => data);
     return pr;
   };
 }

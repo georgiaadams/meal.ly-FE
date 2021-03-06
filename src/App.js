@@ -10,7 +10,7 @@ import Login from "./pages/Login/Login";
 import UserLogin from "./pages/Login/UserLogin";
 import UserHome from "./pages/UserHome/Homepage";
 import UserCompleted from "./pages/UserCompleted/CompletedOffers";
-import UserOfferDetails from "./pages/UserOfferDetails/UserOfferDetails";
+import UserOfferDetails from "./pages/UserOfferDetails/OfferDetails";
 import UserOffers from "./pages/UserOffers/AllOffers";
 import UserRequests from "./pages/UserRequests/UserRequests";
 
