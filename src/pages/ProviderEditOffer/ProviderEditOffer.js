@@ -7,7 +7,7 @@ class ProviderEditOffer extends Component {
     companyName: "",
     content: "",
     quantity: "",
-    date: new Date().toISOString().substr(0, 10),
+    date: new Date(),
     pickupSlot: "",
   };
   componentDidMount() {
@@ -28,6 +28,13 @@ class ProviderEditOffer extends Component {
     providerService
       .editOffer(id, { companyName, content, quantity, date, pickupSlot })
       .then((data) => {
+        this.setState({
+          companyName: "",
+          content: "",
+          quantity: "",
+          date: new Date(),
+          pickupSlot: "",
+        });
         this.props.history.push("/provider/offers");
       })
       .catch((err) => console.log(err));

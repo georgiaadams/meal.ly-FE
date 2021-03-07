@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    padding-top: 10px;
+  }
+
+.logout {
+  height: 40px;
+  width: auto;
+}

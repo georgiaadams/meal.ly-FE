@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import providerService from "../../services/provider-service";
+import BottomNavbar from "../../components/BottomNavbar/BottomNavbar";
+import "./ProviderNewOffer.css";
 
 class ProviderNewOffer extends Component {
   state = {
     companyName: "",
     content: "",
     quantity: "",
-    date: new Date().toISOString().substr(0, 10),
+    date: new Date(),
     pickupSlot: "",
     image: "",
   };
@@ -29,7 +31,7 @@ class ProviderNewOffer extends Component {
           companyName: "",
           content: "",
           quantity: "",
-          date: new Date().toISOString().substr(0, 10),
+          date: new Date(),
           pickupSlot: "",
           image: "",
         });
@@ -45,9 +47,10 @@ class ProviderNewOffer extends Component {
 
   render() {
     return (
-      <div>
-        <form>
+      <div className="new-offer-form">
+        <form className="new-offer">
           <label>Name of your company:</label>
+          <br />
           <input
             type="text"
             name="companyName"
@@ -56,6 +59,7 @@ class ProviderNewOffer extends Component {
           />
           <br />
           <label>What kind of food are you giving away?</label>
+          <br />
           <input
             type="text"
             name="content"
@@ -64,6 +68,7 @@ class ProviderNewOffer extends Component {
           />
           <br />
           <label>Please specify the amount:</label>
+          <br />
           <input
             type="text"
             name="quantity"
@@ -72,6 +77,7 @@ class ProviderNewOffer extends Component {
           />
           <br />
           <label>Pickup day:</label>
+          <br />
           <input
             type="date"
             name="date"
@@ -80,6 +86,7 @@ class ProviderNewOffer extends Component {
           />
           <br />
           <label>Pickup time:</label>
+          <br />
           <input
             type="time"
             name="pickupSlot"
@@ -87,8 +94,9 @@ class ProviderNewOffer extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <button onClick={this.handleFormSubmit}>Submit</button>
+          <button className="new-offer-button" onClick={this.handleFormSubmit}>Submit</button>
         </form>
+        <BottomNavbar/>
       </div>
     );
   }

@@ -22,7 +22,7 @@ class PickupRequest extends React.Component {
     const { pickupSlot, comments } = this.state;
     return (
       <div className="pickup-form">
-        <form onSubmit={this.handleFormSubmit}>
+        <form className="user-form" onSubmit={this.handleFormSubmit}>
           <label>Pickup Slot</label>
           <h5>Please let us know an approximate time frame 😊</h5>
           <select
