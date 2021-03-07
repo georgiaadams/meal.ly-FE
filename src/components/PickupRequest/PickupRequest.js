@@ -1,5 +1,6 @@
 import React from "react";
 import "./PickupRequest.css";
+import userService from "../../services/user-service";
 
 class PickupRequest extends React.Component {
   state = {
@@ -11,10 +12,16 @@ class PickupRequest extends React.Component {
     let { value, name } = event.target;
     this.setState({ [name]: value });
   };
-  handleFormSubmit = (event) => {
+  handleFormSubmit = async (event) => {
     event.preventDefault();
-    const newRequest = this.state;
-    this.props.PickupRequest = newRequest;
+    const { pickupSlot, comments } = this.state;
+    const { offerId } = this.props;
+    const data = await userService.requestOffer({
+      offerId,
+      comments,
+      pickupSlot,
+    });
+    console.log(data);
     this.setState({ pickupSlot: "", comments: "" });
   };
 

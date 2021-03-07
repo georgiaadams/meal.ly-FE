@@ -48,7 +48,7 @@ class OfferDetails extends Component {
         </div>
         <hr />
         <h4>Pickup Request</h4>
-        <PickupRequest />
+        <PickupRequest offerId={this.props.match.params.id} />
       </div>
     );
   }
