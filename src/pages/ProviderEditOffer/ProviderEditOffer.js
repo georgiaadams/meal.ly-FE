@@ -7,7 +7,7 @@ class ProviderEditOffer extends Component {
     companyName: "",
     content: "",
     quantity: "",
-    date: new Date().toISOString().substr(0, 10),
+    date: new Date(),
     pickupSlot: "",
   };
 
@@ -23,7 +23,7 @@ class ProviderEditOffer extends Component {
           companyName: "",
           content: "",
           quantity: "",
-          date: new Date().toISOString().substr(0, 10),
+          date: new Date(),
           pickupSlot: "",
         });
         this.props.history.push("/provider/offers");

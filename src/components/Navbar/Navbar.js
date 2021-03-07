@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../../context/auth-context";
+import "./Navbar.css";
 
 class Navbar extends Component {
   render() {
@@ -12,29 +13,10 @@ class Navbar extends Component {
           to={isProviderUser ? "/provider/homepage" : "/user/homepage"}
           id="home-btn"
         >
-          <h2>Home</h2>
+            <img className="logo" src="https://res.cloudinary.com/skillbees/image/upload/v1615120413/Meal.ly/homelogo_dovbaf.png" alt="logo"/>
         </Link>
-        <img src="https://res.cloudinary.com/skillbees/image/upload/v1615051038/Meal.ly/logo_omac4x.png" />
+    
 
-        {/* if (isLoggedIn && !isProviderUser) {
-      <div> <p>{user && user.firstName}</p>
-        <button onClick={logout}>Logout</button> </div>
-    } else if (isLoggedIn && isProviderUser) {
-
-    <div> <p>{user && user.companyName}</p>
-        <button onClick={logout}>Logout</button> </div>
-    } else {
-     
-      <>
-      <Link to="/login">
-        <button className="navbar-button">Login</button>{" "}
-      </Link>
-      <br />
-      <Link to="/signup">
-        <button className="navbar-button">Sign Up</button>{" "}
-      </Link>
-    </>
-    } */}
         {isLoggedIn ? (
           <>
             <p>{user && user.firstName}</p>
@@ -44,12 +26,16 @@ class Navbar extends Component {
               width="30px"
               height="30px"
             /> */}
-            <button onClick={logout}>Logout</button>
+            <img onClick={logout} className="logout" src="https://res.cloudinary.com/skillbees/image/upload/v1615137241/Meal.ly/logout_ylpnmq.png"/>
           </>
         ) : (
           <></>
         )}
       </nav>
+
+      //mobile navbar
+          
+  
     );
   }
 }

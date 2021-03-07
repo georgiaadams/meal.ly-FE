@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+.welcome {
+  font-family: "Cookie", cursive;
+  color: #331832;
+  font-size: 40px;
+}
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #82ABA1;
+}
+
+.food-icon {
+  height: 50px;
+  width: auto;
+  padding-top: 15px;
+}
+
+p {
+  font-family: "Raleway", sans-serif;
+  color: #331832;
+  text-align: center;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.buttons {
+  padding-top: 40px;
+}
+
+.login-business-button {
+  font-family: "Raleway", sans-serif;
+  color: #331832;
+  border-style: none;
+  border-radius: 10px;
+  height: 35px;
+  width: 150px;
+  padding: 0 13px;
+  margin-bottom: 15px;
+}
+
+.signup-business-button {
+  font-family: "Raleway", sans-serif;
+  color: #331832;
+  border-style: none;
+  border-radius: 10px;
+  height: 35px;
+  width: 150px;
+  padding: 0 13px;
+  margin-bottom: 15px;
+}
+
+.user-login-button {
+  font-family: "Raleway", sans-serif;
+  color: white;
+  border-style: none;
+  border-radius: 10px;
+  height: 35px;
+  width: 150px;
+  padding: 0 13px;
+  margin-bottom: 15px;
+  background-color: #694d72;
+}
+
+.user-signup-button {
+  font-family: "Raleway", sans-serif;
+  color: white;
+  border-style: none;
+  border-radius: 10px;
+  height: 35px;
+  width: 150px;
+  padding: 0 13px;
+  margin-bottom: 15px;
+  background-color: #694d72;
+}
+
+hr {
+  border: 1px solid #694d72;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #331832;
+    
+}
+
+.footer p {
+    font-size: smaller;
+    color: white;
+}

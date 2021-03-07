@@ -4,23 +4,14 @@ html, body {
 }
 
 .App {
-  padding: 20px;;
+  padding: 20px;
 }
 
 nav.navbar { 
   display: flex;
   padding: 0px 20px;
-  background: rgb(127, 216, 88);
+  background: #82ABA1;
 }
 
-button.navbar-button {
-  padding: 5px 20px;
-  width: 100px;
-  margin: 15px 10px;
-  border-radius: 3px;
-}
 
-#home-btn {
-  color: white;
-  text-decoration: none;
-}
+

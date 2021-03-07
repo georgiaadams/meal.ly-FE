@@ -24,9 +24,9 @@ class ProviderService {
     const pr = this.api.post("/provider/offers", data);
     return pr;
   };
-  editOffer = (id) => {
+  editOffer = (id, { companyName, content, quantity, date, pickupSlot }) => {
     const pr = this.api
-      .put(`/provider/offers/${id}`)
+      .put(`/provider/offers/${id}`, { companyName, content, quantity, date, pickupSlot })
       .then((response) => response.data);
     return pr;
   };

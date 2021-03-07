@@ -1,0 +1,26 @@
+.bottom-navbar {
+  background-color: #694d72;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* Style the links inside the navigation bar */
+.bottom-navbar p {
+  display: flex;
+  flex-direction: row;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 5px 5px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Change the color of links on hover */
+.bottom-navbar p:hover {
+  color: #331832;
+}

@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./ProviderHomepage.css";
+import BottomNavbar from "../../components/BottomNavbar/BottomNavbar";
 
 class ProviderHomepage extends Component {
   render() {
     return (
-      <div>
-        <h1>I am the provider homepage</h1>
+      <div className="provider-home">
+      <img className="care-icon" src="https://res.cloudinary.com/skillbees/image/upload/v1615127951/Meal.ly/love_louyw3.png" alt="care-icon"/>
         <Link to={"/provider/offers/new"}>
-          <button>Add a new offer</button>
+          <button className="add-new-offer">Add a new offer</button>
         </Link>
-        <h2>Your pending offers:</h2>
+        <h3>Your pending offers:</h3>
         <Link to={"/provider/offers"}>
-          <button>Offers panel</button>
+          <button className="offers-panel-button">All my offers</button>
         </Link>
+        <BottomNavbar/>
       </div>
     );
   }
