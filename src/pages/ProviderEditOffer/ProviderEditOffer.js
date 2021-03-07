@@ -10,6 +10,15 @@ class ProviderEditOffer extends Component {
     date: new Date().toISOString().substr(0, 10),
     pickupSlot: "",
   };
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    providerService
+      .getOneOfferProvider(id)
+      .then((data) => {
+        this.setState({ ...data });
+      })
+      .catch((err) => console.log(err));
+  }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
@@ -19,13 +28,6 @@ class ProviderEditOffer extends Component {
     providerService
       .editOffer(id, { companyName, content, quantity, date, pickupSlot })
       .then((data) => {
-        this.setState({
-          companyName: "",
-          content: "",
-          quantity: "",
-          date: new Date().toISOString().substr(0, 10),
-          pickupSlot: "",
-        });
         this.props.history.push("/provider/offers");
       })
       .catch((err) => console.log(err));

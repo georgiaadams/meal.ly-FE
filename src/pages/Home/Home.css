@@ -1,0 +1,13 @@
+.landing-page {
+  background-color: #82aba1;
+  height: 100vh;
+  text-align: center;
+}
+
+.landing-page h1 {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  color: white;
+  padding-bottom: 30px;
+  padding-top: 40px;
+}

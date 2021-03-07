@@ -32,69 +32,73 @@ class Signup extends Component {
   render() {
     const { companyName, address, phoneNumber, email, password } = this.state;
     return (
-      <div>
+      <div className="signup">
         <h1>Sign Up</h1>
 
         <form onSubmit={this.handleFormSubmit}>
-          <label>Company Name:</label>
+          <label></label>
           <input
             type="text"
             name="companyName"
+            placeholder="company name"
             value={companyName}
             onChange={this.handleChange}
           />
 
           <br />
 
-          <label>Address:</label>
+          <label></label>
           <input
             type="text"
             name="address"
+            placeholder="address"
             value={address}
             onChange={this.handleChange}
           />
 
           <br />
 
-          <label>Phone Number:</label>
+          <label></label>
           <input
             type="number"
             name="phoneNumber"
+            placeholder="phone number"
             value={phoneNumber}
             onChange={this.handleChange}
           />
 
           <br />
 
-          <label>Email:</label>
+          <label></label>
           <input
             type="email"
             name="email"
+            placeholder="email"
             value={email}
             onChange={this.handleChange}
           />
-          <br/>
-
           <br />
 
-          <label>Password:</label>
+          <label></label>
           <input
             type="password"
             name="password"
+            placeholder="password"
             value={password}
             onChange={this.handleChange}
           />
-          <br/>
+          <br />
 
-      
-
-       
-
-          <input type="submit" value="Signup" />
+          <button className="signup-btn" type="submit" value="Signup">
+            Signup
+          </button>
         </form>
 
         <p>Already have account?</p>
-        <Link to={"/login"}> Login</Link>
+        <Link to={"/login"}>
+          {" "}
+          <button className="login-btn">Login</button>
+        </Link>
       </div>
     );
   }

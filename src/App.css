@@ -1,26 +1,17 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
 
 .App {
-  padding: 20px;;
+  padding: 20px;
 }
 
-nav.navbar { 
+nav.navbar {
   display: flex;
-  padding: 0px 20px;
-  background: rgb(127, 216, 88);
-}
-
-button.navbar-button {
-  padding: 5px 20px;
-  width: 100px;
-  margin: 15px 10px;
-  border-radius: 3px;
-}
-
-#home-btn {
-  color: white;
-  text-decoration: none;
+  padding: 8px 20px;
+  background: #82aba1;
+  justify-content: center;
+  padding-top: 15px;
 }

@@ -16,13 +16,18 @@ class OfferCard extends Component {
     const { allOffers } = this.state;
     return (
       <div>
-        <h2>New Offers</h2>
         {allOffers.slice(0, 2).map((offers) => {
           return (
-            <div key={offers._id}>
-              <h3>Business: {offers.companyName}</h3>
-              <h3>Content: {offers.content}</h3>
-              <h3>Quantity: {offers.quantity}</h3>
+            <div className="offer-card" key={offers._id}>
+              <div className="offer-info">
+                <p>Company: {offers.companyName}</p>
+                <p>Content: {offers.content}</p>
+                <p>Quantity: {offers.quantity}</p>
+              </div>
+
+              <div>
+                <img width="80px" src={offers.image} alt="offer-img" />
+              </div>
             </div>
           );
         })}

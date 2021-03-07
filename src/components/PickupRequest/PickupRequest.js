@@ -1,4 +1,5 @@
 import React from "react";
+import "./PickupRequest.css";
 
 class PickupRequest extends React.Component {
   state = {
@@ -20,8 +21,7 @@ class PickupRequest extends React.Component {
   render() {
     const { pickupSlot, comments } = this.state;
     return (
-      <div>
-        <h3>Request Pickup</h3>
+      <div className="pickup-form">
         <form onSubmit={this.handleFormSubmit}>
           <label>Pickup Slot</label>
           <h5>Please let us know an approximate time frame 😊</h5>
@@ -35,6 +35,9 @@ class PickupRequest extends React.Component {
             <option>Afternoon: 12pm-5pm</option>
             <option>Evening: 5pm-11pm</option>
           </select>
+
+          <br />
+
           <label>Comments</label>
           <input
             type="text"
@@ -43,8 +46,9 @@ class PickupRequest extends React.Component {
             onChange={this.handleInput}
             placeholder="Leave any comments here"
           />
+          <br />
+          <button>Request</button>
         </form>
-        <button>Request</button>
       </div>
     );
   }

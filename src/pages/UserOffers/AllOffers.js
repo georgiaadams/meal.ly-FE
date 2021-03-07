@@ -1,6 +1,8 @@
 import React from "react";
 import userService from "../../services/user-service";
 import { Link } from "react-router-dom";
+import "../../components/OfferCard/OfferCard.css";
+import "./AllOffers.css";
 
 class AllOffers extends React.Component {
   state = {
@@ -21,16 +23,24 @@ class AllOffers extends React.Component {
     console.log(allOffers);
 
     return (
-      <div>
+      <div className="all-offers">
+        <h2>All Offers</h2>
         {allOffers.map((offers) => {
           return (
-            <div key={offers._id}>
-              <h2>{offers.companyName}</h2>
-              <h3>{offers.address}</h3>
-              <h3>{offers.phoneNumber}</h3>
-              <Link to={`/user/offers/${offers._id}`}>
-                <button>See more</button>
-              </Link>
+            <div className="offer-card" key={offers._id}>
+              <div className="offer-info">
+                <p>{offers.companyName}</p>
+                <p>{offers.quantity}</p>
+                <p>{offers.content}</p>
+              </div>
+              <div>
+                <img width="80px" src={offers.image} alt="offerimg" />
+              </div>
+              <div>
+                <Link to={`/user/offers/${offers._id}`}>
+                  <button>See more</button>
+                </Link>
+              </div>
             </div>
           );
         })}

@@ -20,27 +20,31 @@ class Login extends Component {
     const { email, password } = this.state;
 
     return (
-      <div>
+      <div className="login">
         <h1>Login</h1>
 
         <form onSubmit={this.handleFormSubmit}>
-          <label>Email:</label>
+          <label></label>
           <input
             type="email"
             name="email"
+            placeholder="email"
             value={email}
             onChange={this.handleChange}
           />
-
-          <label>Password:</label>
+          <br />
+          <label></label>
           <input
             type="password"
             name="password"
+            placeholder="password"
             value={password}
             onChange={this.handleChange}
           />
-
-          <input type="submit" value="Login" />
+          <br />
+          <button type="submit" value="Login">
+            Login
+          </button>
         </form>
       </div>
     );

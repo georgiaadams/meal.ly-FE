@@ -1,53 +1,28 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { withAuth } from "../../context/auth-context";
+import UserNavbarContent from "./UserNavbarContent";
+import { Link } from "react-router-dom";
+// import ProviderNavbarContent from "./ProviderNavbarContent";
 
 class Navbar extends Component {
   render() {
     const { user, logout, isLoggedIn, isProviderUser } = this.props;
 
+    const name = user?.firstName || user?.companyName;
+    const link = isProviderUser ? "/provider/homepage" : "/user/homepage";
+
     return (
       <nav className="navbar">
-        <Link
-          to={isProviderUser ? "/provider/homepage" : "/user/homepage"}
-          id="home-btn"
-        >
-          <h2>Home</h2>
+        <Link to={"/"} id="home-btn">
+          <img
+            width="60px"
+            src="https://res.cloudinary.com/skillbees/image/upload/v1615120413/Meal.ly/homelogo_dovbaf.png"
+            alt="logo"
+          />
         </Link>
-        <img src="https://res.cloudinary.com/skillbees/image/upload/v1615051038/Meal.ly/logo_omac4x.png" />
 
-        {/* if (isLoggedIn && !isProviderUser) {
-      <div> <p>{user && user.firstName}</p>
-        <button onClick={logout}>Logout</button> </div>
-    } else if (isLoggedIn && isProviderUser) {
-
-    <div> <p>{user && user.companyName}</p>
-        <button onClick={logout}>Logout</button> </div>
-    } else {
-     
-      <>
-      <Link to="/login">
-        <button className="navbar-button">Login</button>{" "}
-      </Link>
-      <br />
-      <Link to="/signup">
-        <button className="navbar-button">Sign Up</button>{" "}
-      </Link>
-    </>
-    } */}
-        {isLoggedIn ? (
-          <>
-            <p>{user && user.firstName}</p>
-            {/* <img
-              src="/profileIcon.png"
-              alt="profile"
-              width="30px"
-              height="30px"
-            /> */}
-            <button onClick={logout}>Logout</button>
-          </>
-        ) : (
-          <></>
+        {isLoggedIn && (
+          <UserNavbarContent link={link} name={name} logout={logout} />
         )}
       </nav>
     );

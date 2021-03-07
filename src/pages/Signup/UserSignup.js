@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "./../../context/auth-context";
+import "./Signup.css";
 
 class UserSignup extends Component {
   state = { firstName: "", lastName: "", email: "", password: "" };
@@ -20,47 +21,56 @@ class UserSignup extends Component {
   render() {
     const { firstName, lastName, email, password } = this.state;
     return (
-      <div>
-        <h1>User Sign Up</h1>
+      <div className="signup">
+        <h1>User Signup</h1>
 
         <form onSubmit={this.handleFormSubmit}>
-          <label>Firstname:</label>
+          <label></label>
           <input
             type="text"
             name="firstName"
+            placeholder="firstname"
             value={firstName}
             onChange={this.handleChange}
           />
-
-          <label>Lastname:</label>
+          <br />
+          <label></label>
           <input
             type="text"
             name="lastName"
+            placeholder="lastname"
             value={lastName}
             onChange={this.handleChange}
           />
-
-          <label>Email:</label>
+          <br />
+          <label></label>
           <input
             type="email"
             name="email"
+            placeholder="email"
             value={email}
             onChange={this.handleChange}
           />
-
-          <label>Password:</label>
+          <br />
+          <label></label>
           <input
             type="password"
             name="password"
+            placeholder="password"
             value={password}
             onChange={this.handleChange}
           />
-
-          <input type="submit" value="Signup" />
+          <br />
+          <button className="signup-btn" type="submit" value="Signup">
+            Signup
+          </button>
         </form>
 
         <p>Already have account?</p>
-        <Link to={"/user/login"}> Login</Link>
+        <Link to={"/user/login"}>
+          {" "}
+          <button className="login-btn">Login</button>
+        </Link>
       </div>
     );
   }
