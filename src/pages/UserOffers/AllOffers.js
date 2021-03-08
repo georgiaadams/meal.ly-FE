@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../../components/OfferCard/OfferCard.css";
 import "./AllOffers.css";
 
+
 class AllOffers extends React.Component {
   state = {
     allOffers: [],

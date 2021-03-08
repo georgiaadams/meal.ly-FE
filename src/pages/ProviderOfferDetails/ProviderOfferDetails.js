@@ -1,5 +1,6 @@
 import providerService from "../../services/provider-service";
 import React, { Component } from "react";
+import BottomNavbar from "../../components/BottomNavbar/BottomNavbar";
 import { Link } from "react-router-dom";
 
 class ProviderOfferDetails extends Component {
@@ -39,6 +40,7 @@ class ProviderOfferDetails extends Component {
           <button>Edit</button>
         </Link>
         <button onClick={this.deleteOneOffer}>Remove offer</button>
+        <BottomNavbar />
       </div>
     );
   }
