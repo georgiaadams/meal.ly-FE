@@ -2,6 +2,7 @@ import providerService from "../../services/provider-service";
 import React, { Component } from "react";
 import BottomNavbar from "../../components/BottomNavbar/BottomNavbar";
 import { Link } from "react-router-dom";
+import AcceptOffer from "../../components/AcceptOffer/AcceptOffer";
 
 class ProviderOfferDetails extends Component {
   state = {
@@ -41,6 +42,7 @@ class ProviderOfferDetails extends Component {
         </Link>
         <button onClick={this.deleteOneOffer}>Remove offer</button>
         <BottomNavbar />
+        <AcceptOffer />
       </div>
     );
   }
