@@ -13,8 +13,8 @@ class ProviderHomepage extends React.Component {
     providerService
       .getAllOffersProvider()
       .then((offers) => {
-        offers.filter((offer) => offer.status === "requested");
-        const data = offers;
+        const data = offers.filter((offer) => offer.status === "requested");
+        console.log(data);
         this.setState({ requestedOffers: data });
       })
       .catch((err) => console.log(err));
@@ -34,9 +34,12 @@ class ProviderHomepage extends React.Component {
         <h3>Your requested offers:</h3>
         {requestedOffers.map((offer) => (
           <div key={offer._id}>
-            <p>{offer.companyName}</p>
-            <p>{offer.pickupSlot}</p>
+            <Link to={`/provider/offers/${offer._id}`}>
+              <p>{offer.companyName}</p>
+            </Link>
+            <p>{offer.content}</p>
             <p>{offer.comments}</p>
+            <p>{offer.pickupSlot}</p>
           </div>
         ))}
         <Link to={"/provider/offers"}>

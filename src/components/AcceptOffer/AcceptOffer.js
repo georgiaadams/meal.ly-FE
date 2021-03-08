@@ -1,15 +1,27 @@
-// import React from 'react';
-// import { withRouter } from 'react-router-dom';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import providerService from "../../services/provider-service";
 
 
-// function AcceptOffer(props) {
-//     const offerId = props.match.params.id;
-//     return (
-//         <div>
-//             <button onClick={}>Accept pickup </button>
-//         </div>
-//     )
-// }
+class AcceptOffer extends Component {
 
-// export default withRouter(AcceptOffer);
+    handleClick = async (event) => {
+                const offerId = this.props.match.params.id;
+                const data = await providerService.acceptOffer({offerId});
+                console.log(data);
+                this.props.history.push("/provider/offers");
+                
+            }
+
+    render() {
+        return (
+            <div>
+                <button onClick={this.handleClick}>Accept pickup </button>
+            </div>
+        )
+    }
+}
+
+
+export default withRouter(AcceptOffer);
 
