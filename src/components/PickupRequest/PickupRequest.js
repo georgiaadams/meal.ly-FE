@@ -4,7 +4,7 @@ import userService from "../../services/user-service";
 
 class PickupRequest extends React.Component {
   state = {
-    pickupSlot: "",
+    username: "",
     comments: "",
   };
 
@@ -15,34 +15,30 @@ class PickupRequest extends React.Component {
 
   handleFormSubmit = async (event) => {
     event.preventDefault();
-    const { pickupSlot, comments } = this.state;
+    const { username, comments } = this.state;
     const { offerId } = this.props;
     const data = await userService.requestOffer({
       offerId,
       comments,
-      pickupSlot,
+      username,
     });
     console.log(data);
-    this.setState({ pickupSlot: "", comments: "" });
+    this.setState({ username: "", comments: "" });
   };
 
   render() {
-    const { pickupSlot, comments } = this.state;
+    const { username, comments } = this.state;
     return (
       <div className="pickup-form">
         <form className="user-form" onSubmit={this.handleFormSubmit}>
-          <label>Pickup Slot</label>
-          <h5>Please let us know an approximate time frame 😊</h5>
-          <select
+          <label>Name</label>
+          <h5>Please let us know who will come to collect 😊</h5>
+          <input
             type="text"
-            name="pickupSlot"
-            value={pickupSlot}
+            name="username"
+            value={username}
             onChange={this.handleInput}
-          >
-            <option>Morning: 9am-12pm</option>
-            <option>Afternoon: 12pm-5pm</option>
-            <option>Evening: 5pm-11pm</option>
-          </select>
+          />
 
           <br />
 

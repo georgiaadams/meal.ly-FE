@@ -15,9 +15,10 @@ class UserService {
     const pr = this.api.get(`user/offers/${id}`).then(({ data }) => data);
     return pr;
   };
+
   getPendingOffersUser = () => {
     const pr = this.api
-      .get("user/offers/status/ready-requested")
+      .get("/user/offers/status/ready-requested")
       .then(({ data }) => data);
     return pr;
   };
@@ -34,6 +35,15 @@ class UserService {
         offerId,
         comments,
         pickupSlot,
+      })
+      .then(({ data }) => data);
+    return pr;
+  };
+
+  completeOffer = ({ offerId }) => {
+    const pr = this.api
+      .put("/user/offers/status/completed", {
+        offerId,
       })
       .then(({ data }) => data);
     return pr;
