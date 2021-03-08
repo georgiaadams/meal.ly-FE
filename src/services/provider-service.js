@@ -36,10 +36,20 @@ class ProviderService {
       .then((response) => response.data);
     return pr;
   };
+
   deleteOffer = (id) => {
     const pr = this.api
       .delete(`/provider/offers/${id}`)
       .then((response) => response.data);
+    return pr;
+  };
+
+  acceptOffer = ({ offerId }) => {
+    const pr = this.api
+      .put("/provider/offers/status/update", {
+        offerId,
+      })
+      .then(({ data }) => data);
     return pr;
   };
 }
