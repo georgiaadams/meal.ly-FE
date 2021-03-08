@@ -27,6 +27,17 @@ class UserService {
       .then(({ data }) => data);
     return pr;
   };
+
+  requestOffer = ({ offerId, comments, pickupSlot }) => {
+    const pr = this.api
+      .put("/user/offers/status/update", {
+        offerId,
+        comments,
+        pickupSlot,
+      })
+      .then(({ data }) => data);
+    return pr;
+  };
 }
 // Create instance (object) containing all axios calls as methods
 const userService = new UserService();
