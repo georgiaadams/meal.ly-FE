@@ -35,7 +35,7 @@ class ProviderNewOffer extends Component {
           pickupSlot: "",
           image: "",
         });
-        this.props.history.push("/provider/homepage");
+        this.props.history.push("/provider/offers");
       })
       .catch((err) => console.log(err));
   };
