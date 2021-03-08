@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import BottomNavbar from "../../components/BottomNavbar/BottomNavbar";
 import { Link } from "react-router-dom";
 import AcceptOffer from "../../components/AcceptOffer/AcceptOffer";
+import moment from "moment";
 
 class ProviderOfferDetails extends Component {
   state = {
@@ -29,15 +30,16 @@ class ProviderOfferDetails extends Component {
   };
 
   render() {
+    const { offer } = this.state;
     return (
       <div>
-        <h1>{this.state.offer.companyName}</h1>
-        <p>{this.state.offer.content}</p>
-        <p>{this.state.offer.quantity}</p>
-        <p>Pickup time: {this.state.offer.pickupSlot}</p>
-        <p>Posted on: {this.state.offer.date}</p>
-        <p>{this.state.offer.status}</p>
-        <Link to={`/provider/offers/edit/${this.state.offer._id}`}>
+        <h1>{offer.companyName}</h1>
+        <p>{offer.content}</p>
+        <p>{offer.quantity}</p>
+        <p>Pickup time: {offer.pickupSlot}</p>
+        <p>Pickup day: {moment(offer.date).format("LL")}</p>
+        <p>{offer.status}</p>
+        <Link to={`/provider/offers/edit/${offer._id}`}>
           <button>Edit</button>
         </Link>
         <button onClick={this.deleteOneOffer}>Remove offer</button>
