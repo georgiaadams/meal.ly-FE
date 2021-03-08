@@ -35,7 +35,7 @@ class ProviderNewOffer extends Component {
           pickupSlot: "",
           image: "",
         });
-        this.props.history.push("/provider/offers");
+        this.props.history.push("/provider/homepage");
       })
       .catch((err) => console.log(err));
   };
@@ -48,7 +48,7 @@ class ProviderNewOffer extends Component {
   render() {
     return (
       <div className="new-offer-form">
-        <form className="new-offer">
+        <form className="new-offer" onSubmit={this.handleFormSubmit}>
           <label>Name of your company:</label>
           <br />
           <input
@@ -108,9 +108,7 @@ class ProviderNewOffer extends Component {
             <option>Night: 8pm-11.30pm</option>
           </select> */}
           <br />
-          <button className="new-offer-button" onClick={this.handleFormSubmit}>
-            Submit
-          </button>
+          <button className="new-offer-button">Submit</button>
         </form>
         <BottomNavbar />
       </div>
