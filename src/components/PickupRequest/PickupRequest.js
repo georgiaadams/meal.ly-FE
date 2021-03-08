@@ -12,6 +12,7 @@ class PickupRequest extends React.Component {
     let { value, name } = event.target;
     this.setState({ [name]: value });
   };
+
   handleFormSubmit = async (event) => {
     event.preventDefault();
     const { pickupSlot, comments } = this.state;

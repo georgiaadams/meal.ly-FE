@@ -30,7 +30,7 @@ class ProviderOffers extends Component {
                 <h3>{offer.content}</h3>
                 <p>{offer.quantity}</p>
                 <p>Pickup: {offer.pickupSlot}</p>
-                <p>Posted on: {moment(offer.date).format("lll")}</p>
+                <p>Pickup day: {moment(offer.date).format("LL")}</p>
                 <p>Status: {offer.status}</p>
                 <Link to={`/provider/offers/${offer._id}`}>
                   <button className="view-details">View details</button>

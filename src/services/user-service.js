@@ -27,6 +27,7 @@ class UserService {
       .then(({ data }) => data);
     return pr;
   };
+
   requestOffer = ({ offerId, comments, pickupSlot }) => {
     const pr = this.api
       .put("/user/offers/status/update", {
