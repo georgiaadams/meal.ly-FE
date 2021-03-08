@@ -94,9 +94,25 @@ class ProviderNewOffer extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <button className="new-offer-button" onClick={this.handleFormSubmit}>Submit</button>
+          {/* <label>Pickup Slot</label>
+          <br />
+          <select
+            type="text"
+            name="pickupSlot"
+            value={this.state.pickupSlot}
+            onChange={this.handleChange}
+          >
+            <option>Morning: 9am-12pm</option>
+            <option>Afternoon: 12pm-4pm</option>
+            <option>Evening: 4pm-8pm</option>
+            <option>Night: 8pm-11.30pm</option>
+          </select> */}
+          <br />
+          <button className="new-offer-button" onClick={this.handleFormSubmit}>
+            Submit
+          </button>
         </form>
-        <BottomNavbar/>
+        <BottomNavbar />
       </div>
     );
   }
