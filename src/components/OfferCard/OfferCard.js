@@ -1,6 +1,7 @@
 import userService from "../../services/user-service";
 import React, { Component } from "react";
 import "./OfferCard.css";
+import socket from "../../services/sockets/socket";
 
 class OfferCard extends Component {
   state = {
@@ -8,10 +9,21 @@ class OfferCard extends Component {
   };
 
   componentDidMount() {
-    userService.getOffersUser().then((data) => {
-      this.setState({ allOffers: data });
+    this.getAllNewOffers();
+    socket.on("newOffer", (newOffer) => {
+      this.setState({ allOffers: [newOffer, ...this.state.allOffers] });
     });
   }
+
+  getAllNewOffers = () => {
+    userService
+      .getOffersUser()
+      .then((data) => {
+        this.setState({ allOffers: data });
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
     const { allOffers } = this.state;
     return (

@@ -1,6 +1,8 @@
 import React from "react";
 import "./PickupRequest.css";
 import userService from "../../services/user-service";
+import socket from "../../services/sockets/socket";
+import { withRouter } from "react-router-dom";
 
 class PickupRequest extends React.Component {
   state = {
@@ -16,13 +18,17 @@ class PickupRequest extends React.Component {
   handleFormSubmit = async (event) => {
     event.preventDefault();
     const { username, comments } = this.state;
-    const { offerId } = this.props;
-    const data = await userService.requestOffer({
+    console.log(this.props);
+
+    const offerId = this.props.match.params.id;
+
+    const { companyName } = await userService.requestOffer({
       offerId,
       comments,
       username,
     });
-    console.log(data);
+    this.props.history.push("/user/offers/pending");
+    socket.emit("requestOffer", { companyName });
     this.setState({ username: "", comments: "" });
   };
 
@@ -58,4 +64,4 @@ class PickupRequest extends React.Component {
   }
 }
 
-export default PickupRequest;
+export default withRouter(PickupRequest);

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import OfferCard from "../../components/OfferCard/OfferCard";
 import RequestedOffers from "../../components/RequestedOffers/RequestedOffers";
 import "./Homepage.css";
+import UserBottomNavbar from "../../components/BottomNavbar/UserBottomNavbar";
+
 function Homepage() {
   return (
     <div className="homepage">
@@ -15,6 +17,7 @@ function Homepage() {
       <Link to={"/user/offers/pending"}>
         <button>See all requests</button>
       </Link>
+      <UserBottomNavbar />
     </div>
   );
 }

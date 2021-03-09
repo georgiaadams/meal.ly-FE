@@ -3,7 +3,7 @@ import userService from "../../services/user-service";
 import { Link } from "react-router-dom";
 import "../../components/OfferCard/OfferCard.css";
 import "./AllOffers.css";
-
+import socket from "../../services/sockets/socket";
 
 class AllOffers extends React.Component {
   state = {
@@ -11,13 +11,22 @@ class AllOffers extends React.Component {
   };
 
   componentDidMount() {
+    this.getAllOffers();
+    socket.on("newOffer", (newOffer) => {
+      console.log("I AM A NEW OFFER", newOffer);
+
+      this.setState({ allOffers: [newOffer, ...this.state.allOffers] });
+    });
+  }
+
+  getAllOffers = () => {
     userService
       .getOffersUser()
       .then((data) => {
         this.setState({ allOffers: data });
       })
       .catch((err) => console.log(err));
-  }
+  };
 
   render() {
     const { allOffers } = this.state;

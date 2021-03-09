@@ -8,11 +8,13 @@ import Signup from "./pages/Signup/Signup";
 import UserSignup from "./pages/Signup/UserSignup";
 import Login from "./pages/Login/Login";
 import UserLogin from "./pages/Login/UserLogin";
+
 import UserHome from "./pages/UserHome/Homepage";
 import UserCompleted from "./pages/UserCompleted/CompletedOffers";
 import UserOfferDetails from "./pages/UserOfferDetails/OfferDetails";
 import UserOffers from "./pages/UserOffers/AllOffers";
 import UserRequests from "./pages/UserRequests/UserRequests";
+import UserProfile from "./pages/UserProfile/UserProfile";
 
 import ProviderHomepage from "./pages/ProviderHomepage/ProviderHomepage";
 import ProviderEditOffer from "./pages/ProviderEditOffer/ProviderEditOffer";
@@ -81,6 +83,8 @@ class App extends Component {
             path="/user/offers/:id"
             component={UserOfferDetails}
           />
+
+          <PrivateRoute exact path="/user/profile" component={UserProfile} />
         </Switch>
       </div>
     );

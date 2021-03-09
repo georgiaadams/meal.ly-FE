@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import userService from "../../services/user-service";
+import moment from "moment";
 
 class RequestedOffers extends Component {
   state = {
@@ -19,9 +21,11 @@ class RequestedOffers extends Component {
         {pendingOffers.map((pendingOffer) => {
           return (
             <div>
-              <p>{pendingOffer.companyName}</p>
-              <p>{pendingOffer.address}</p>
-              <p>{pendingOffer.phoneNumber}</p>
+              <Link to={`/user/offers/${pendingOffer._id}`}>
+                <p>{pendingOffer.companyName}</p>{" "}
+              </Link>
+              <p>{pendingOffer.pickupSlot}</p>
+              <p>{moment(pendingOffer.date).format("LL")}</p>
             </div>
           );
         })}

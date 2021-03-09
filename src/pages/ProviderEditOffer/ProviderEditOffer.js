@@ -46,6 +46,8 @@ class ProviderEditOffer extends Component {
   };
 
   render() {
+    const { companyName, content, quantity, date, pickupSlot } = this.state;
+
     return (
       <div>
         <h1>Edit your offer</h1>
@@ -54,7 +56,7 @@ class ProviderEditOffer extends Component {
           <input
             type="text"
             name="companyName"
-            value={this.state.companyName}
+            value={companyName}
             onChange={this.handleChange}
           />
           <br />
@@ -62,7 +64,7 @@ class ProviderEditOffer extends Component {
           <input
             type="text"
             name="content"
-            value={this.state.content}
+            value={content}
             onChange={this.handleChange}
           />
           <br />
@@ -70,7 +72,7 @@ class ProviderEditOffer extends Component {
           <input
             type="text"
             name="quantity"
-            value={this.state.quantity}
+            value={quantity}
             onChange={this.handleChange}
           />
           <br />
@@ -78,7 +80,7 @@ class ProviderEditOffer extends Component {
           <input
             type="date"
             name="date"
-            value={this.state.date}
+            value={date}
             onChange={this.handleChange}
           />
           <br />
@@ -86,7 +88,7 @@ class ProviderEditOffer extends Component {
           <input
             type="time"
             name="pickupSlot"
-            value={this.state.pickupSlot}
+            value={pickupSlot}
             onChange={this.handleChange}
           />
           <br />

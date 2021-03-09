@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import "./ProviderHomepage.css";
 import BottomNavbar from "../../components/BottomNavbar/BottomNavbar";
 import providerService from "../../services/provider-service";
+import socketIOClient from "socket.io-client";
+import { withAuth } from "../../context/auth-context";
+const ENDPOINT = process.env.REACT_APP_API_URL;
 
 class ProviderHomepage extends React.Component {
   state = {
@@ -10,6 +13,18 @@ class ProviderHomepage extends React.Component {
   };
 
   componentDidMount() {
+    const socket = socketIOClient(ENDPOINT);
+    this.getRequestedOffers();
+    socket.on("offerRequested", (data) => {
+      const {
+        user: { companyName },
+      } = this.props;
+      if (data.companyName === companyName) {
+        this.getRequestedOffers();
+      }
+    });
+  }
+  getRequestedOffers = () => {
     providerService
       .getAllOffersProvider()
       .then((offers) => {
@@ -18,7 +33,7 @@ class ProviderHomepage extends React.Component {
         this.setState({ requestedOffers: data });
       })
       .catch((err) => console.log(err));
-  }
+  };
   render() {
     const { requestedOffers } = this.state;
     return (
@@ -51,4 +66,4 @@ class ProviderHomepage extends React.Component {
   }
 }
 
-export default ProviderHomepage;
+export default withAuth(ProviderHomepage);

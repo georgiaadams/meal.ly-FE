@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import providerService from "../../services/provider-service";
 import BottomNavbar from "../../components/BottomNavbar/BottomNavbar";
 import "./ProviderNewOffer.css";
+import socket from "../../services/sockets/socket";
 
 class ProviderNewOffer extends Component {
   state = {
@@ -16,17 +17,17 @@ class ProviderNewOffer extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     const {
+      companyName,
       content,
       quantity,
       date,
       pickupSlot,
-      companyName,
       image,
     } = this.state;
+
     providerService
       .createOffer(content, quantity, date, pickupSlot, companyName, image)
       .then((data) => {
-        console.log(data);
         this.setState({
           companyName: "",
           content: "",
@@ -35,6 +36,7 @@ class ProviderNewOffer extends Component {
           pickupSlot: "",
           image: "",
         });
+        socket.emit("createOffer", data.data);
         this.props.history.push("/provider/offers");
       })
       .catch((err) => console.log(err));
@@ -85,16 +87,8 @@ class ProviderNewOffer extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <label>Pickup time:</label>
-          <br />
-          <input
-            type="time"
-            name="pickupSlot"
-            value={this.state.pickupSlot}
-            onChange={this.handleChange}
-          />
-          <br />
-          {/* <label>Pickup Slot</label>
+
+          <label>Pickup Slot</label>
           <br />
           <select
             type="text"
@@ -106,7 +100,16 @@ class ProviderNewOffer extends Component {
             <option>Afternoon: 12pm-4pm</option>
             <option>Evening: 4pm-8pm</option>
             <option>Night: 8pm-11.30pm</option>
-          </select> */}
+          </select>
+
+          {/* <label>Pickup time:</label> */}
+          {/* <br />
+          <input
+            type="time"
+            name="pickupSlot"
+            value={this.state.pickupSlot}
+            onChange={this.handleChange}
+          /> */}
           <br />
           <button className="new-offer-button">Submit</button>
         </form>

@@ -9,8 +9,8 @@ class Navbar extends Component {
   render() {
     const { user, logout, isLoggedIn, isProviderUser } = this.props;
 
-    const name = user?.firstName || user?.companyName;
-    const link = isProviderUser ? "/provider/homepage" : "/user/homepage";
+    // const name = user?.firstName || user?.companyName;
+    // const link = isProviderUser ? "/provider/homepage" : "/user/homepage";
 
     return (
       <nav className="navbar">
@@ -31,7 +31,7 @@ class Navbar extends Component {
           <img
             className="logo"
             src="https://res.cloudinary.com/skillbees/image/upload/v1615120413/Meal.ly/homelogo_dovbaf.png"
-            alt="logo"
+            alt="home-logo"
           />
         </Link>
 
@@ -48,6 +48,7 @@ class Navbar extends Component {
               onClick={logout}
               className="logout"
               src="https://res.cloudinary.com/skillbees/image/upload/v1615137241/Meal.ly/logout_ylpnmq.png"
+              alt="logout-img"
             />
           </>
         ) : (
