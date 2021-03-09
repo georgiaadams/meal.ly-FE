@@ -5,14 +5,14 @@ import "./BottomNavbar.css";
 class BottomNavbar extends Component {
     render() {
         return (
-            <div class="bottom-navbar">
+            <div className="bottom-navbar">
              <Link to={"/provider/offers"}>
           <p>My offers</p>
         </Link>
         <Link to={"/provider/offers/new"}>
           <p>New offer</p>
         </Link>
-        <Link to={"/provider/offers"}>
+        <Link to={"/provider/myprofile"}>
           <p>My profile</p>
         </Link>
         <Link to={"/provider/homepage"}>

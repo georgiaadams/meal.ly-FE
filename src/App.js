@@ -23,6 +23,7 @@ import ProviderOffers from "./pages/ProviderOffers/ProviderOffers";
 import AnonRoute from "./components/AnonRoute/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Navbar from "./components/Navbar/Navbar";
+import ProviderProfile from "./pages/ProviderProfile/ProviderProfile";
 
 class App extends Component {
   render() {
@@ -80,6 +81,11 @@ class App extends Component {
             exact
             path="/user/offers/:id"
             component={UserOfferDetails}
+          />
+          <PrivateRoute
+            exact
+            path="/provider/myprofile"
+            component={ProviderProfile}
           />
         </Switch>
       </div>

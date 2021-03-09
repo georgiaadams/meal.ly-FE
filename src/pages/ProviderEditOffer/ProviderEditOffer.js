@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import providerService from "../../services/provider-service";
 import { withAuth } from "../../context/auth-context";
+import "./ProviderEditOffer.css";
 
 class ProviderEditOffer extends Component {
   state = {
@@ -47,9 +48,9 @@ class ProviderEditOffer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="edit-offer-form">
         <h1>Edit your offer</h1>
-        <form onSubmit={this.handleFormSubmit}>
+        <form className="edit-offer" onSubmit={this.handleFormSubmit}>
           <label>Name of your company:</label>
           <input
             type="text"
@@ -90,7 +91,7 @@ class ProviderEditOffer extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <input type="submit" value="Submit" />
+         <input type="submit" value="Submit" />
         </form>
       </div>
     );

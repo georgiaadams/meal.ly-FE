@@ -4,6 +4,7 @@ import BottomNavbar from "../../components/BottomNavbar/BottomNavbar";
 import { Link } from "react-router-dom";
 import AcceptOffer from "../../components/AcceptOffer/AcceptOffer";
 import moment from "moment";
+import "./ProviderOfferDetails.css";
 
 class ProviderOfferDetails extends Component {
   state = {
@@ -32,19 +33,35 @@ class ProviderOfferDetails extends Component {
   render() {
     const { offer } = this.state;
     return (
-      <div>
-        <h1>{offer.companyName}</h1>
+      <div className="provider-oneoffer-details">
+        {/* <h1>{offer.companyName}</h1> */}
         <p>{offer.content}</p>
         <p>{offer.quantity}</p>
         <p>Pickup time: {offer.pickupSlot}</p>
         <p>Pickup day: {moment(offer.date).format("LL")}</p>
-        <p>{offer.status}</p>
-        <Link to={`/provider/offers/edit/${offer._id}`}>
-          <button>Edit</button>
-        </Link>
-        <button onClick={this.deleteOneOffer}>Remove offer</button>
+        <p>Offer status: {offer.status}</p>
+
+        {offer.status === "requested" ? (
+          <>
+            <div className="buttons-conditional">
+              <Link to={`/provider/offers/edit/${offer._id}`}>
+                <button className="edit-provider-offer">Edit</button>
+              </Link>
+              <AcceptOffer />
+              <p
+                className="one-provideroffer-delete"
+                onClick={this.deleteOneOffer}
+              >
+                Remove offer
+              </p>
+            </div>
+          </>
+        ) : (
+          <>
+           
+          </>
+        )}
         <BottomNavbar />
-        <AcceptOffer />
       </div>
     );
   }
