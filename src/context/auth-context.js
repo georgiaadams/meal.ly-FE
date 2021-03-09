@@ -77,7 +77,7 @@ class AuthProvider extends React.Component {
         const isProviderUser = !!user.companyName;
         this.setState({ isLoggedIn: true, user: user, isProviderUser });
       })
-      .then((user) => this.setState({ isLoggedIn: true, user }))
+
       .catch((err) => {
         this.setState({ isLoggedIn: false, user: null });
       });
