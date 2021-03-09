@@ -9,9 +9,8 @@ class RequestedOffers extends Component {
   };
 
   componentDidMount() {
-    userService.getPendingOffersUser().then((offers) => {
-      const data = offers.filter((offer) => offer.status === "requested");
-      this.setState({ pendingOffers: data });
+    userService.getPendingOffersUser().then(({ requested }) => {
+      this.setState({ pendingOffers: requested });
     });
   }
   render() {

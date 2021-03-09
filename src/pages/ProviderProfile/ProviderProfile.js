@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import BottomNavbar from "../../components/BottomNavbar/BottomNavbar";
 import { withAuth } from "./../../context/auth-context";
 import "./ProviderProfile.css";

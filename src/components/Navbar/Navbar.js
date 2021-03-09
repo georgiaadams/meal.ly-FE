@@ -1,29 +1,14 @@
 import React, { Component } from "react";
 import { withAuth } from "../../context/auth-context";
-// import UserNavbarContent from "./UserNavbarContent";
 import { Link } from "react-router-dom";
-// import ProviderNavbarContent from "./ProviderNavbarContent";
 import "./Navbar.css";
 
 class Navbar extends Component {
   render() {
     const { user, logout, isLoggedIn, isProviderUser } = this.props;
 
-    // const name = user?.firstName || user?.companyName;
-    // const link = isProviderUser ? "/provider/homepage" : "/user/homepage";
-
     return (
       <nav className="navbar">
-        {/* <Link to={"/"} id="home-btn">
-          <img
-            width="60px"
-            src="https://res.cloudinary.com/skillbees/image/upload/v1615120413/Meal.ly/homelogo_dovbaf.png"
-            alt="logo"
-          />
-        </Link>
-
-        {isLoggedIn && (
-          <UserNavbarContent link={link} name={name} logout={logout} /> */}
         <Link
           to={isProviderUser ? "/provider/homepage" : "/user/homepage"}
           id="home-btn"
@@ -35,9 +20,9 @@ class Navbar extends Component {
           />
         </Link>
 
-        {isLoggedIn ? (
+        {isLoggedIn && (
           <>
-            <p>{user && user.firstName}</p>
+            <p>{user && isProviderUser ? user.companyName : user.firstName}</p>
             {/* <img
               src="/profileIcon.png"
               alt="profile"
@@ -51,12 +36,8 @@ class Navbar extends Component {
               alt="logout-img"
             />
           </>
-        ) : (
-          <></>
         )}
       </nav>
-
-      //mobile navbar
     );
   }
 }

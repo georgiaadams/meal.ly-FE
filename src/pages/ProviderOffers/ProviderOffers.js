@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import BottomNavbar from "../../components/BottomNavbar/BottomNavbar";
 import "./ProviderOffers.css";
 import moment from "moment";
+import socket from "../../services/sockets/socket";
 
 class ProviderOffers extends Component {
   state = {
@@ -11,15 +12,17 @@ class ProviderOffers extends Component {
   };
 
   componentDidMount() {
+    this.getAllOffers();
+    socket.on("offerCollected", () => this.getAllOffers());
+  }
+  getAllOffers = () => {
     providerService
       .getAllOffersProvider()
       .then((data) => {
-        console.log(data);
         this.setState({ offers: data });
       })
       .catch((err) => console.log(err));
-  }
-
+  };
   render() {
     return (
       <div className="offer">
@@ -50,7 +53,7 @@ class ProviderOffers extends Component {
                     src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/calendar_hhbgvr.png"
                     alt="calendar-icon"
                   />{" "}
-                  Pickup day: {moment(offer.date).format('LL')};
+                  Pickup day: {moment(offer.date).format("LL")};
                 </p>
                 <p>
                   <img
