@@ -9,7 +9,8 @@ class RequestedOffers extends Component {
   };
 
   componentDidMount() {
-    userService.getPendingOffersUser().then((data) => {
+    userService.getPendingOffersUser().then((offers) => {
+      const data = offers.filter((offer) => offer.status === "requested");
       this.setState({ pendingOffers: data });
     });
   }
@@ -24,6 +25,7 @@ class RequestedOffers extends Component {
               <Link to={`/user/offers/${pendingOffer._id}`}>
                 <p>{pendingOffer.companyName}</p>{" "}
               </Link>
+              <p>{pendingOffer.content}</p>
               <p>{pendingOffer.pickupSlot}</p>
               <p>{moment(pendingOffer.date).format("LL")}</p>
             </div>
