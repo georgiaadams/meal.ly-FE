@@ -53,8 +53,8 @@ class ProviderHomepage extends React.Component {
               <p>{offer.companyName}</p>
             </Link>
             <p>{offer.content}</p>
-            <p>{offer.comments}</p>
-            <p>{offer.pickupSlot}</p>
+            <p>Message: {offer.comments}</p>
+            <p>Pickup time: {offer.pickupSlot}</p>
           </div>
         ))}
         <Link to={"/provider/offers"}>

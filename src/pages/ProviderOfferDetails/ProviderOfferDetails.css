@@ -1,0 +1,33 @@
+.provider-oneoffer-details {
+  display: flex;
+  flex-direction: column;
+  padding-top: 55px;
+}
+
+.buttons-conditional {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.buttons-conditional button {
+  font-family: "Raleway", sans-serif;
+  color: white;
+  border-style: none;
+  border-radius: 10px;
+  height: 25px;
+  width: 130px;
+  margin-bottom: 15px;
+  background-color: #694d72;
+}
+
+.one-provideroffer-delete {
+  color: red;
+  font-weight: bolder;
+}
+
+.conditional-warning {
+    font-size: small;
+    padding: 15px;
+}

@@ -7,7 +7,7 @@ const UserProfile = (props) => {
   return (
     <div>
       <h2>My Profile</h2>
-      <img src={user.image} alt="userImg" />
+      <img width="70px" src={user.image} alt="userImg" />
       <p>{user.firstName}</p>
       <p>{user.lastName}</p>
       <p>{user.email}</p>

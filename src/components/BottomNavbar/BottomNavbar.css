@@ -20,6 +20,10 @@
   font-size: 14px;
 }
 
+.bottom-navbar a {
+  text-decoration: none;
+}
+
 /* Change the color of links on hover */
 .bottom-navbar p:hover {
   color: #331832;
