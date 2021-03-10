@@ -19,6 +19,7 @@ class ProviderService {
       .then((response) => response.data);
     return pr;
   };
+
   createOffer = (content, quantity, date, pickupSlot, companyName, image) => {
     const data = { content, quantity, date, pickupSlot, companyName, image };
     const pr = this.api.post("/provider/offers", data);

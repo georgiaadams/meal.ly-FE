@@ -6,7 +6,7 @@ class Signup extends Component {
   state = {
     companyName: "",
     address: "",
-    phoneNumber: 0,
+    phoneNumber: undefined,
     email: "",
     password: "",
   };
@@ -49,17 +49,6 @@ class Signup extends Component {
 
           <label></label>
           <input
-            type="text"
-            name="address"
-            placeholder="address"
-            value={address}
-            onChange={this.handleChange}
-          />
-
-          <br />
-
-          <label></label>
-          <input
             type="number"
             name="phoneNumber"
             placeholder="phone number"
@@ -85,6 +74,18 @@ class Signup extends Component {
             name="password"
             placeholder="password"
             value={password}
+            onChange={this.handleChange}
+          />
+
+          <br />
+
+          <label></label>
+          <input
+            className="signup-address"
+            type="text"
+            name="address"
+            placeholder="please enter full address: Street, City, Postcode"
+            value={address}
             onChange={this.handleChange}
           />
           <br />

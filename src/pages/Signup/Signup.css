@@ -27,6 +27,10 @@
   padding-left: 10px;
 }
 
+.signup > .signup-address {
+  height: 50px;
+}
+
 .signup-btn {
   border: none;
   border-radius: 5px;
