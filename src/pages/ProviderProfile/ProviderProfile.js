@@ -7,11 +7,11 @@ const ProviderProfile = (props) => {
   const provider = props.user;
 
   return (
-    <div>
+    <div className="provider-profile">
       <h2>My Profile</h2>
-      <img width="70px" src={provider.image} alt="userImg" />
       <p>{provider.companyName}</p>
       <p>{provider.address}</p>
+      <p>Phone: {provider.phoneNumber}</p>
       <p>{provider.email}</p>
 
       <button>Delete Account</button>

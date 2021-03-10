@@ -48,13 +48,13 @@ class ProviderHomepage extends React.Component {
         </Link>
         <h3>Your requested offers:</h3>
         {requestedOffers.map((offer) => (
-          <div key={offer._id}>
+          <div className="provider-hp-offers" key={offer._id}>
             <Link to={`/provider/offers/${offer._id}`}>
               <p>{offer.companyName}</p>
             </Link>
-            <p>{offer.content}</p>
-            <p>Message: {offer.comments}</p>
-            <p>Pickup time: {offer.pickupSlot}</p>
+            <p><img className="offer-icon" src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/healthy-food_jf07wc.png"/> {offer.content}</p>
+            <p><img className="offer-icon" src="https://res.cloudinary.com/skillbees/image/upload/v1615325955/Meal.ly/messenger_c959rr.png"/> Message: {offer.comments}</p>
+            <p><img className="offer-icon" src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/clock_snwysd.png"/> Pickup time: {offer.pickupSlot}</p>
           </div>
         ))}
         <Link to={"/provider/offers"}>

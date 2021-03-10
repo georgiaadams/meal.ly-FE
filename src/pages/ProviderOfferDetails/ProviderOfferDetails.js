@@ -32,6 +32,54 @@ class ProviderOfferDetails extends Component {
 
   render() {
     const { offer } = this.state;
+    const renderButtons = () => {
+      if (offer.status === "new") {
+        return (
+          <div className="buttons-conditional">
+            <Link to={`/provider/offers/edit/${offer._id}`}>
+              <button className="edit-provider-offer">Edit</button>
+            </Link>
+            <p
+              className="one-provideroffer-delete"
+              onClick={this.deleteOneOffer}
+            >
+              Remove offer
+            </p>
+          </div>
+        );
+      } else if (offer.status === "requested") {
+        return (
+          <div className="buttons-conditional">
+            <Link to={`/provider/offers/edit/${offer._id}`}>
+              <button className="edit-provider-offer">Edit</button>
+            </Link>
+            <AcceptOffer />
+            <p
+              className="one-provideroffer-delete"
+              onClick={this.deleteOneOffer}
+            >
+              Remove offer
+            </p>
+          </div>
+        );
+      } else if (offer.status === "completed") {
+        return (
+          <div className="buttons-conditional">
+            <p
+              className="one-provideroffer-delete"
+              onClick={this.deleteOneOffer}
+            >
+              Remove offer
+            </p>
+          </div>
+        );
+      } else {
+        return (
+          <p className="conditional-warning">You cannot change this offer</p>
+        );
+      }
+    };
+
     return (
       <div className="provider-oneoffer-details">
         {/* <h1>{offer.companyName}</h1> */}
@@ -41,26 +89,7 @@ class ProviderOfferDetails extends Component {
         <p>Pickup day: {moment(offer.date).format("LL")}</p>
         <p>Offer status: {offer.status}</p>
 
-        {offer.status === "requested" ? (
-          <>
-            <div className="buttons-conditional">
-              <Link to={`/provider/offers/edit/${offer._id}`}>
-                <button className="edit-provider-offer">Edit</button>
-              </Link>
-              <AcceptOffer />
-              <p
-                className="one-provideroffer-delete"
-                onClick={this.deleteOneOffer}
-              >
-                Remove offer
-              </p>
-            </div>
-          </>
-        ) : (
-          <>
-           
-          </>
-        )}
+        {renderButtons()}
         <BottomNavbar />
       </div>
     );

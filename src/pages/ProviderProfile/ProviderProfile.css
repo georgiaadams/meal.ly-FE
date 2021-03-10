@@ -1,7 +1,23 @@
 .provider-profile {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 50px;
 }
 
+.provider-profile h2 {
+  color: #694d72;
+  text-align: center;
+}
 
+.provider-profile button {
+  width: 120px;
+  margin-top: 30px;
+  font-family: "Raleway", sans-serif;
+  color: white;
+  border-style: none;
+  border-radius: 10px;
+  height: 25px;
+  background-color: #694d72;
+}

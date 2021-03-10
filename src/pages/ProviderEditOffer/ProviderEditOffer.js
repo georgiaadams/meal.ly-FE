@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import providerService from "../../services/provider-service";
 import { withAuth } from "../../context/auth-context";
 import "./ProviderEditOffer.css";
+import BottomNavbar from "../../components/BottomNavbar/BottomNavbar";
 
 class ProviderEditOffer extends Component {
   state = {
@@ -51,7 +52,7 @@ class ProviderEditOffer extends Component {
 
     return (
       <div className="edit-offer-form">
-        <h1>Edit your offer</h1>
+        <h2 className="edit-offer-h2">Edit your offer</h2>
         <form className="edit-offer" onSubmit={this.handleFormSubmit}>
           <label>Name of your company:</label>
           <input
@@ -86,15 +87,30 @@ class ProviderEditOffer extends Component {
           />
           <br />
           <label>Pickup time:</label>
+          <select
+            type="text"
+            name="pickupSlot"
+            value={pickupSlot}
+            onChange={this.handleChange}
+          >
+            <option>Morning: 9am-12pm</option>
+            <option>Afternoon: 12pm-4pm</option>
+            <option>Evening: 4pm-8pm</option>
+            <option>Night: 8pm-11.30pm</option>
+          </select>
+          {/* <label>Pickup time:</label>
           <input
             type="time"
             name="pickupSlot"
             value={pickupSlot}
             onChange={this.handleChange}
-          />
+          /> */}
           <br />
+         
          <input type="submit" value="Submit" />
+          
         </form>
+        <BottomNavbar />
       </div>
     );
   }

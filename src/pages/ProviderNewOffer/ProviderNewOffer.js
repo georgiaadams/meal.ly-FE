@@ -87,7 +87,6 @@ class ProviderNewOffer extends Component {
             onChange={this.handleChange}
           />
           <br />
-
           <label>Pickup Slot</label>
           <br />
           <select
@@ -96,20 +95,12 @@ class ProviderNewOffer extends Component {
             value={this.state.pickupSlot}
             onChange={this.handleChange}
           >
+            <option></option>
             <option>Morning: 9am-12pm</option>
             <option>Afternoon: 12pm-4pm</option>
             <option>Evening: 4pm-8pm</option>
             <option>Night: 8pm-11.30pm</option>
           </select>
-
-          {/* <label>Pickup time:</label> */}
-          {/* <br />
-          <input
-            type="time"
-            name="pickupSlot"
-            value={this.state.pickupSlot}
-            onChange={this.handleChange}
-          /> */}
           <br />
           <button className="new-offer-button">Submit</button>
         </form>

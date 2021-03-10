@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import userService from "../../services/user-service";
+import "./CompletedOffers.css";
+import moment from "moment";
 
 class CompletedOffers extends Component {
   state = {
@@ -20,13 +22,15 @@ class CompletedOffers extends Component {
   render() {
     const { completedOffers } = this.state;
     return (
-      <div>
+      <div className="user-completed-offers">
         <h2>Your Completed Orders</h2>
         {completedOffers.map((offer) => (
           <div key={offer._id}>
-            <h3>{offer.companyName}</h3>
-            <h3>{offer.content}</h3>
-            <h3>{offer.status}</h3>
+            <p>Company: {offer.companyName}</p>
+            <p>Order: {offer.content}</p>
+            <p>Pickup date: {moment(offer.date).format('LL')}</p>
+            <p>Status: {offer.status}</p>
+            <hr />
           </div>
         ))}
       </div>
