@@ -86,6 +86,7 @@ class ProviderOfferDetails extends Component {
         <p>{offer.quantity}</p>
         <p>Pickup time: {offer.pickupSlot}</p>
         <p>Pickup day: {moment(offer.date).format("LL")}</p>
+        <p>Address: {offer.address}</p>
         <p>Offer status: {offer.status}</p>
 
         {renderButtons()}

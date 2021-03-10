@@ -12,11 +12,10 @@ class AuthService {
     const pr = this.auth
       .post("/auth/user/signup", { firstName, lastName, email, password })
       .then((response) => response.data)
-      .catch((err)=> {
+      .catch((err) => {
         if (err.response) throw new Error(err.response.data.message);
-        else return new Error('Something went wrong');
-      })
-
+        else return new Error("Something went wrong");
+      });
 
     return pr;
   }
@@ -25,11 +24,10 @@ class AuthService {
     const pr = this.auth
       .post("/auth/user/login", { email, password })
       .then((response) => response.data)
-      .catch((err)=> {
+      .catch((err) => {
         if (err.response) throw new Error(err.response.data.message);
-        else return new Error('Something went wrong');
-      })
-
+        else return new Error("Something went wrong");
+      });
 
     return pr;
   }

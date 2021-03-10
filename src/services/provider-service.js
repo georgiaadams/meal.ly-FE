@@ -20,12 +20,12 @@ class ProviderService {
     return pr;
   };
 
-  createOffer = (content, quantity, date, pickupSlot, companyName, image) => {
-    const data = { content, quantity, date, pickupSlot, companyName, image };
+  createOffer = (content, quantity, date, pickupSlot, companyName, address, image) => {
+    const data = { content, quantity, date, pickupSlot, companyName, address, image };
     const pr = this.api.post("/provider/offers", data);
     return pr;
   };
-  editOffer = (id, { companyName, content, quantity, date, pickupSlot }) => {
+  editOffer = (id, { companyName, content, quantity, date, pickupSlot, address }) => {
     const pr = this.api
       .put(`/provider/offers/${id}`, {
         companyName,
@@ -33,6 +33,7 @@ class ProviderService {
         quantity,
         date,
         pickupSlot,
+        address
       })
       .then((response) => response.data);
     return pr;

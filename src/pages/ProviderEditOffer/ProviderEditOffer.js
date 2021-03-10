@@ -11,6 +11,7 @@ class ProviderEditOffer extends Component {
     quantity: "",
     date: new Date(),
     pickupSlot: "",
+    address: "",
   };
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -24,11 +25,25 @@ class ProviderEditOffer extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { companyName, content, quantity, date, pickupSlot } = this.state;
+    const {
+      companyName,
+      content,
+      quantity,
+      date,
+      pickupSlot,
+      address,
+    } = this.state;
     const { id } = this.props.match.params;
 
     providerService
-      .editOffer(id, { companyName, content, quantity, date, pickupSlot })
+      .editOffer(id, {
+        companyName,
+        content,
+        quantity,
+        date,
+        pickupSlot,
+        address,
+      })
       .then((data) => {
         this.setState({
           companyName: "",
@@ -36,6 +51,7 @@ class ProviderEditOffer extends Component {
           quantity: "",
           date: new Date(),
           pickupSlot: "",
+          address: "",
         });
         this.props.history.push("/provider/offers");
       })
@@ -48,7 +64,14 @@ class ProviderEditOffer extends Component {
   };
 
   render() {
-    const { companyName, content, quantity, date, pickupSlot } = this.state;
+    const {
+      companyName,
+      content,
+      quantity,
+      date,
+      pickupSlot,
+      address,
+    } = this.state;
 
     return (
       <div className="edit-offer-form">
@@ -75,6 +98,14 @@ class ProviderEditOffer extends Component {
             type="text"
             name="quantity"
             value={quantity}
+            onChange={this.handleChange}
+          />
+          <br />
+          <label>Address:</label>
+          <input
+            type="text"
+            name="address"
+            value={address}
             onChange={this.handleChange}
           />
           <br />

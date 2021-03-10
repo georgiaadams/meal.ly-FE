@@ -11,6 +11,7 @@ class ProviderNewOffer extends Component {
     quantity: "",
     date: new Date(),
     pickupSlot: "",
+    address: "",
     image: "",
   };
 
@@ -22,11 +23,20 @@ class ProviderNewOffer extends Component {
       quantity,
       date,
       pickupSlot,
+      address,
       image,
     } = this.state;
 
     providerService
-      .createOffer(content, quantity, date, pickupSlot, companyName, image)
+      .createOffer(
+        content,
+        quantity,
+        date,
+        pickupSlot,
+        companyName,
+        address,
+        image
+      )
       .then((data) => {
         this.setState({
           companyName: "",
@@ -34,6 +44,7 @@ class ProviderNewOffer extends Component {
           quantity: "",
           date: new Date(),
           pickupSlot: "",
+          address: "",
           image: "",
         });
         socket.emit("createOffer", data.data);
@@ -75,6 +86,15 @@ class ProviderNewOffer extends Component {
             type="text"
             name="quantity"
             value={this.state.quantity}
+            onChange={this.handleChange}
+          />
+          <br />
+          <label>Address:</label>
+          <br />
+          <input
+            type="text"
+            name="address"
+            value={this.state.address}
             onChange={this.handleChange}
           />
           <br />
