@@ -1,6 +1,7 @@
 import React from "react";
 import { withAuth } from "../../context/auth-context";
 import "./UserProfile.css";
+import UserBottomNavbar from "../../components/BottomNavbar/UserBottomNavbar";
 
 const UserProfile = (props) => {
   const user = props.user;
@@ -17,6 +18,7 @@ const UserProfile = (props) => {
       <button className="edit-btn">Edit Details</button>
       <br />
       <button className="delete-btn">Delete Account</button>
+      <UserBottomNavbar />
     </div>
   );
 };

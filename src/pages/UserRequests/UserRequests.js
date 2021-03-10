@@ -3,6 +3,7 @@ import userService from "../../services/user-service";
 import CompleteOffer from "../../components/CompleteOffer";
 import socket from "../../services/sockets/socket";
 import { withAuth } from "../../context/auth-context";
+import UserBottomNavbar from "../../components/BottomNavbar/UserBottomNavbar";
 
 class UserRequests extends Component {
   state = {
@@ -54,6 +55,7 @@ class UserRequests extends Component {
             )}
           </div>
         ))}
+        <UserBottomNavbar />
       </div>
     );
   }

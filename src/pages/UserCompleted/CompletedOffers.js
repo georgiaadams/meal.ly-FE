@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import userService from "../../services/user-service";
+import UserBottomNavbar from "../../components/BottomNavbar/UserBottomNavbar";
 
 class CompletedOffers extends Component {
   state = {
@@ -29,6 +30,7 @@ class CompletedOffers extends Component {
             <h3>{offer.status}</h3>
           </div>
         ))}
+        <UserBottomNavbar />
       </div>
     );
   }
