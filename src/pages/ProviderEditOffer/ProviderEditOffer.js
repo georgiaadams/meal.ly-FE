@@ -90,7 +90,7 @@ class ProviderEditOffer extends Component {
           <select
             type="text"
             name="pickupSlot"
-            value={this.state.pickupSlot}
+            value={pickupSlot}
             onChange={this.handleChange}
           >
             <option></option>

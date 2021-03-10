@@ -3,6 +3,7 @@ import providerService from "../../services/provider-service";
 import BottomNavbar from "../../components/BottomNavbar/BottomNavbar";
 import "./ProviderNewOffer.css";
 import socket from "../../services/sockets/socket";
+import { withAuth } from "../../context/auth-context";
 
 class ProviderNewOffer extends Component {
   state = {
@@ -11,6 +12,7 @@ class ProviderNewOffer extends Component {
     quantity: "",
     date: new Date(),
     pickupSlot: "",
+    address: undefined,
     image: "",
   };
 
@@ -22,11 +24,20 @@ class ProviderNewOffer extends Component {
       quantity,
       date,
       pickupSlot,
+      address,
       image,
     } = this.state;
 
     providerService
-      .createOffer(content, quantity, date, pickupSlot, companyName, image)
+      .createOffer(
+        content,
+        quantity,
+        date,
+        pickupSlot,
+        companyName,
+        address,
+        image
+      )
       .then((data) => {
         this.setState({
           companyName: "",
@@ -34,6 +45,7 @@ class ProviderNewOffer extends Component {
           quantity: "",
           date: new Date(),
           pickupSlot: "",
+          address: "",
           image: "",
         });
         socket.emit("createOffer", data.data);
@@ -48,6 +60,8 @@ class ProviderNewOffer extends Component {
   };
 
   render() {
+    const providerInfo = this.props.user;
+
     return (
       <div className="new-offer-form">
         <form className="new-offer" onSubmit={this.handleFormSubmit}>
@@ -77,6 +91,16 @@ class ProviderNewOffer extends Component {
             value={this.state.quantity}
             onChange={this.handleChange}
           />
+          <br />
+          <label>Address</label>
+          <br />
+          <input
+            type="text"
+            name="address"
+            value={this.state.address}
+            onChange={this.handleChange}
+          />
+          <br />
           <br />
           <label>Pickup day:</label>
           <br />
@@ -110,4 +134,4 @@ class ProviderNewOffer extends Component {
   }
 }
 
-export default ProviderNewOffer;
+export default withAuth(ProviderNewOffer);
