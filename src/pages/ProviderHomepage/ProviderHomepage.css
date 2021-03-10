@@ -46,4 +46,10 @@ h3 {
   margin-top: 15px;
 }
 
+.provider-hp-offers a {
+  font-size: large;
+  text-decoration: none;
+  color:#331832;
+}
+
 

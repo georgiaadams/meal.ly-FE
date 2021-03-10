@@ -82,7 +82,6 @@ class ProviderOfferDetails extends Component {
 
     return (
       <div className="provider-oneoffer-details">
-        {/* <h1>{offer.companyName}</h1> */}
         <p>{offer.content}</p>
         <p>{offer.quantity}</p>
         <p>Pickup time: {offer.pickupSlot}</p>

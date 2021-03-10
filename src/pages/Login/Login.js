@@ -2,13 +2,16 @@ import React, { Component } from "react";
 import { withAuth } from "./../../context/auth-context";
 
 class Login extends Component {
-  state = { email: "", password: "" };
+  state = { email: "", password: "", hasError: false, errorInfo: "" };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { email, password } = this.state;
     // Call function coming from AuthProvider ( via withAuth )
-    this.props.providerLogin(email, password);
+    this.props.providerLogin(email, password)
+    .catch((error) => {
+      this.setState({ hasError: true, errorInfo: error.message });
+    });
   };
 
   handleChange = (event) => {
@@ -17,7 +20,7 @@ class Login extends Component {
   };
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, hasError, errorInfo } = this.state;
 
     return (
       <div className="login">
@@ -46,6 +49,7 @@ class Login extends Component {
             Login
           </button>
         </form>
+        {hasError && <p>{errorInfo}</p>}
       </div>
     );
   }
