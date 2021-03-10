@@ -3,13 +3,16 @@ import { withAuth } from "./../../context/auth-context";
 import "./Login.css";
 
 class UserLogin extends Component {
-  state = { email: "", password: "" };
+  state = { email: "", password: "", hasError: false, errorInfo: "" };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { email, password } = this.state;
     // Call function coming from AuthProvider ( via withAuth )
-    this.props.userLogin(email, password);
+    this.props.userLogin(email, password)
+    .catch((error) => {
+      this.setState({ hasError: true, errorInfo: error.message });
+    });
   };
 
   handleChange = (event) => {
@@ -18,7 +21,7 @@ class UserLogin extends Component {
   };
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, hasError, errorInfo } = this.state;
 
     return (
       <div className="login">
@@ -47,6 +50,7 @@ class UserLogin extends Component {
             Login
           </button>
         </form>
+        {hasError && <p>{errorInfo}</p>}
       </div>
     );
   }

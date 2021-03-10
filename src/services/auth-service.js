@@ -11,14 +11,26 @@ class AuthService {
   userSignup(firstName, lastName, email, password) {
     const pr = this.auth
       .post("/auth/user/signup", { firstName, lastName, email, password })
-      .then((response) => response.data);
+      .then((response) => response.data)
+      .catch((err)=> {
+        if (err.response) throw new Error(err.response.data.message);
+        else return new Error('Something went wrong');
+      })
+
+
     return pr;
   }
 
   userLogin(email, password) {
     const pr = this.auth
       .post("/auth/user/login", { email, password })
-      .then((response) => response.data);
+      .then((response) => response.data)
+      .catch((err)=> {
+        if (err.response) throw new Error(err.response.data.message);
+        else return new Error('Something went wrong');
+      })
+
+
     return pr;
   }
 
@@ -31,7 +43,11 @@ class AuthService {
         email,
         password,
       })
-      .then((response) => response.data);
+      .then((response) => response.data)
+      .catch((err) => {
+        if (err.response) throw new Error(err.response.data.message);
+        else return new Error("Something went wrong");
+      });
     // .then(({ data }) => data); // Shorter way of `.then((response) => response.data);`
 
     return pr;
@@ -40,7 +56,11 @@ class AuthService {
   providerLogin(email, password) {
     const pr = this.auth
       .post("/auth/login", { email, password })
-      .then((response) => response.data);
+      .then((response) => response.data)
+      .catch((err) => {
+        if (err.response) throw new Error(err.response.data.message);
+        else return new Error("Something went wrong");
+      });
 
     return pr;
   }

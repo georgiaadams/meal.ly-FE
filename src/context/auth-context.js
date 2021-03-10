@@ -34,7 +34,7 @@ class AuthProvider extends React.Component {
   }
 
   userSignup = (firstName, lastName, email, password) => {
-    authService
+    return authService
       .userSignup(firstName, lastName, email, password)
       .then((user) => {
         const isProviderUser = !!user.companyName;
@@ -46,7 +46,7 @@ class AuthProvider extends React.Component {
   };
 
   userLogin = (email, password) => {
-    authService
+    return authService
       .userLogin(email, password)
       .then((user) => {
         const isProviderUser = !!user.companyName;
@@ -58,7 +58,7 @@ class AuthProvider extends React.Component {
   };
 
   providerSignup = (companyName, address, phoneNumber, email, password) => {
-    authService
+    return authService
       .providerSignup(companyName, address, phoneNumber, email, password)
       .then((user) => {
         const isProviderUser = !!user.companyName;
@@ -71,16 +71,12 @@ class AuthProvider extends React.Component {
   };
 
   providerLogin = (email, password) => {
-    authService
+    return authService
       .providerLogin(email, password)
       .then((user) => {
         const isProviderUser = !!user.companyName;
         this.setState({ isLoggedIn: true, user: user, isProviderUser });
       })
-
-      .catch((err) => {
-        this.setState({ isLoggedIn: false, user: null });
-      });
   };
 
   logout = () => {

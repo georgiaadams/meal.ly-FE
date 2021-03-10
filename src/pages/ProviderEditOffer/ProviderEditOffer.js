@@ -62,7 +62,7 @@ class ProviderEditOffer extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <label>What kind of food are you giving away?</label>
+          <label>What are you giving away?</label>
           <input
             type="text"
             name="content"
@@ -87,7 +87,6 @@ class ProviderEditOffer extends Component {
           />
           <br />
           <label>Pickup Slot</label>
-          <br />
           <select
             type="text"
             name="pickupSlot"
