@@ -86,22 +86,22 @@ class ProviderEditOffer extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <label>Pickup time:</label>
+          <label>Pickup Slot</label>
+          <br />
           <select
             type="text"
             name="pickupSlot"
-            value={pickupSlot}
+            value={this.state.pickupSlot}
             onChange={this.handleChange}
           >
+            <option></option>
             <option>Morning: 9am-12pm</option>
             <option>Afternoon: 12pm-4pm</option>
             <option>Evening: 4pm-8pm</option>
             <option>Night: 8pm-11.30pm</option>
           </select>
           <br />
-         
-         <input type="submit" value="Submit" />
-          
+          <input type="submit" value="Submit" />
         </form>
         <BottomNavbar />
       </div>

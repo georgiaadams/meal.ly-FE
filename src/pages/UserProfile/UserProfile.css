@@ -1,0 +1,27 @@
+.profile-page {
+  text-align: center;
+}
+
+.profile-page h2 {
+  margin: 50px 10px;
+}
+
+.delete-btn {
+  margin-top: 20px;
+  background-color: #694d72;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  width: 120px;
+}
+
+.edit-btn {
+  margin-top: 20px;
+  background-color: #694d72;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  width: 100px;
+}
