@@ -98,13 +98,6 @@ class ProviderEditOffer extends Component {
             <option>Evening: 4pm-8pm</option>
             <option>Night: 8pm-11.30pm</option>
           </select>
-          {/* <label>Pickup time:</label>
-          <input
-            type="time"
-            name="pickupSlot"
-            value={pickupSlot}
-            onChange={this.handleChange}
-          /> */}
           <br />
          
          <input type="submit" value="Submit" />

@@ -26,11 +26,6 @@ class OfferDetails extends Component {
     return (
       <div className="offer-details">
         <div className="offer-header">
-          {/* <div>
-          <Link to={"/user/offers"}>
-            <button className="backbtn">Back to all</button>
-          </Link>
-        </div> */}
           <h2>Offer Details</h2>
         </div>
         <img
@@ -59,7 +54,6 @@ class OfferDetails extends Component {
            <PickupRequest />
           </>
         )}
-        {/* <PickupRequest /> */}
       </div>
     );
   }
