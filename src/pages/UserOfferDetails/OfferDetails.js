@@ -45,7 +45,15 @@ class OfferDetails extends Component {
           </div>
           <hr />
           <h4>Pickup Request</h4>
-          <PickupRequest />
+          {oneOffer.status !== "new" ? (
+            <>
+              <div>You have requested this offer already</div>
+            </>
+          ) : (
+            <>
+              <PickupRequest />
+            </>
+          )}
         </div>
         <UserBottomNavbar />
       </div>
