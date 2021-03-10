@@ -49,11 +49,39 @@ class ProviderHomepage extends React.Component {
         <h3>Your requested offers:</h3>
         {requestedOffers.map((offer) => (
           <div className="provider-hp-offers" key={offer._id}>
-            <p><img className="offer-icon" src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/healthy-food_jf07wc.png"/> {offer.content}</p>
-            <p><img className="offer-icon" src="https://res.cloudinary.com/skillbees/image/upload/v1615325955/Meal.ly/messenger_c959rr.png"/> Message: {offer.comments}</p>
-            <p><img className="offer-icon" src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/clock_snwysd.png"/> Pickup time: {offer.pickupSlot}</p>
+            <p>
+              <img
+                className="offer-icon"
+                src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/healthy-food_jf07wc.png"
+                alt="food-img"
+              />{" "}
+              {offer.content}
+            </p>
+            <p>
+              <img
+                className="offer-icon"
+                src="https://res.cloudinary.com/skillbees/image/upload/v1615325955/Meal.ly/messenger_c959rr.png"
+                alt="messaging-img"
+              />{" "}
+              Message: {offer.comments}
+            </p>
+            <p>
+              <img
+                className="offer-icon"
+                src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/clock_snwysd.png"
+                alt="time-img"
+              />{" "}
+              Pickup time: {offer.pickupSlot}
+            </p>
             <Link to={`/provider/offers/${offer._id}`}>
-              <p>Accept pickup <img className="offer-icon" src="https://res.cloudinary.com/skillbees/image/upload/v1615381281/Meal.ly/confirmation_vucm8r.png"/></p>
+              <p>
+                Accept pickup{" "}
+                <img
+                  className="offer-icon"
+                  src="https://res.cloudinary.com/skillbees/image/upload/v1615381281/Meal.ly/confirmation_vucm8r.png"
+                  alt="confirm-img"
+                />
+              </p>
             </Link>
           </div>
         ))}

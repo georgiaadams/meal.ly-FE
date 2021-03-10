@@ -62,7 +62,8 @@ class OfferDetails extends Component {
             <p>
               Quantity: {oneOffer.quantity} | Pickup: {oneOffer.pickupSlot}
             </p>
-            <ProviderLocation />
+            <p>{oneOffer.address}</p>
+            <ProviderLocation address={oneOffer.address} />
           </div>
           <hr />
           <h4>Pickup Request</h4>

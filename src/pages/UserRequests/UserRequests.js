@@ -4,6 +4,7 @@ import CompleteOffer from "../../components/CompleteOffer";
 import socket from "../../services/sockets/socket";
 import { withAuth } from "../../context/auth-context";
 import UserBottomNavbar from "../../components/BottomNavbar/UserBottomNavbar";
+import ProviderLocation from "../../components/ProviderLocation";
 
 class UserRequests extends Component {
   state = {
@@ -35,13 +36,11 @@ class UserRequests extends Component {
     this.state.showingReady ? "Ready" : "Requested";
 
   render() {
-    console.log(this.state);
     const { readyOffers, requestedOffers, showingReady } = this.state;
 
     return (
       <div>
         <h2>{this.renderReadyOrRequestedTitle()} Requests</h2>
-        {/* <h2>Ready for Collection</h2> */}
         <button onClick={() => this.setState({ showingReady: !showingReady })}>
           {showingReady ? "show requested" : "show ready"}
         </button>
@@ -50,6 +49,7 @@ class UserRequests extends Component {
             <p>{offer.companyName}</p>
             <p>{offer.pickupSlot}</p>
             <p>{offer.comments}</p>
+            <p>{offer.address}</p>
             {showingReady && (
               <CompleteOffer handleClick={() => this.handleClick(offer._id)} />
             )}

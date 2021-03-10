@@ -1,7 +1,5 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import socket from "../services/sockets/socket";
-import userService from "../services/user-service";
 
 class CompleteOffer extends React.Component {
   render() {
