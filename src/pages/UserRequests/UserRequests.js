@@ -13,7 +13,7 @@ class UserRequests extends Component {
   state = {
     readyOffers: [],
     requestedOffers: [],
-    showingReady: true,
+    showingReady: false,
   };
 
   componentDidMount() {

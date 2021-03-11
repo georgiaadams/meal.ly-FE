@@ -51,6 +51,7 @@
 }
 .user-navbar a {
   text-decoration: none;
+  color: white;
 }
 
 /* @media (hover: hover) and (pointer: fine) {

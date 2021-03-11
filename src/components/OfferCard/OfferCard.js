@@ -55,7 +55,7 @@ class OfferCard extends Component {
                     className="offer-icon"
                     src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/healthy-food_jf07wc.png"
                   />
-                  Conten {offers.content}
+                  Content {offers.content}
                 </p>
                 <p>
                   <img
