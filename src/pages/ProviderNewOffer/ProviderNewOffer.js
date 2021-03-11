@@ -49,9 +49,8 @@ class ProviderNewOffer extends Component {
   };
 
   render() {
-    const providerInfo = this.props.user;
-    console.log(providerInfo);
     // const providerInfo = this.props.user;
+
     const {
       companyName,
       content,

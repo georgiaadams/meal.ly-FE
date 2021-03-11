@@ -16,7 +16,6 @@ class ProviderOfferDetails extends Component {
     providerService
       .getOneOfferProvider(id)
       .then((data) => {
-        console.log(data);
         this.setState({ offer: data });
       })
       .catch((err) => console.log(err));

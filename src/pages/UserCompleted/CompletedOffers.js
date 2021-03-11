@@ -13,14 +13,11 @@ class CompletedOffers extends Component {
     userService
       .getCompletedOffersUser()
       .then((offers) => {
-        console.log(offers);
         const data = offers.filter((offer) => offer.status === "completed");
         this.setState({ completedOffers: data });
       })
       .catch((err) => console.log(err));
   }
-
- 
 
   render() {
     const { completedOffers } = this.state;
