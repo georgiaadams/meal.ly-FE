@@ -98,7 +98,8 @@ class ProviderNewOffer extends Component {
           <input
             type="text"
             name="address"
-            value={providerInfo.address}
+            // value={providerInfo.address}
+            value={this.state.address}
             onChange={this.handleChange}
           />
 
