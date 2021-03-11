@@ -1,0 +1,25 @@
+.requested-offers {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.requested-offers button {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #694d72;
+  height: 30px;
+  width: 120px;
+  margin-left: 20px;
+}
+
+.requested-offers h2 {
+  font-size: 25px;
+  margin-left: 20px;
+}
+
+.ready-btn {
+  width: 90px;
+  height: 33px;
+}

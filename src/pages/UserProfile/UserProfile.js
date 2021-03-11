@@ -2,6 +2,7 @@ import React from "react";
 import { withAuth } from "../../context/auth-context";
 import "./UserProfile.css";
 import UserBottomNavbar from "../../components/BottomNavbar/UserBottomNavbar";
+import { Link } from "react-router-dom";
 
 const UserProfile = (props) => {
   const user = props.user;
@@ -14,10 +15,11 @@ const UserProfile = (props) => {
         Name: {user.firstName} {user.lastName}
       </p>
       <p>Email: {user.email}</p>
-
-      <button className="edit-btn">Edit Details</button>
+      <Link to={"/user/profile/edit"}>
+        <button className="edit-btn">Edit Details</button>
+      </Link>
       <br />
-      <button className="delete-btn">Delete Account</button>
+
       <UserBottomNavbar />
     </div>
   );

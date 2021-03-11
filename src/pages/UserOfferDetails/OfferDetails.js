@@ -4,7 +4,8 @@ import userService from "../../services/user-service";
 import PickupRequest from "../../components/PickupRequest/PickupRequest";
 import "./OfferDetails.css";
 import UserBottomNavbar from "../../components/BottomNavbar/UserBottomNavbar";
-import ProviderLocation from "../../components/ProviderLocation";
+import ProviderLocation from "../../components/ProviderLocation/ProviderLocation";
+
 // import mapboxgl from "mapbox-gl";
 
 class OfferDetails extends Component {
@@ -57,19 +58,59 @@ class OfferDetails extends Component {
             alt="offer-img"
           />
           <div className="offer-info">
-            <p>Company: {oneOffer.companyName}</p>
-            <p>Content: {oneOffer.content}</p>
             <p>
-              Quantity: {oneOffer.quantity} | Pickup: {oneOffer.pickupSlot}
+              <img
+                className="offer-icon"
+                src="https://res.cloudinary.com/skillbees/image/upload/v1615452522/Meal.ly/food-stall_irwffa.png"
+                alt="company-img"
+              />{" "}
+              {oneOffer.companyName}
             </p>
-            <p>{oneOffer.address}</p>
+            <p>
+              <img
+                className="offer-icon"
+                src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/healthy-food_jf07wc.png"
+                alt="food-img"
+              />{" "}
+              {oneOffer.content}
+            </p>
+            <p>
+              <img
+                className="offer-icon"
+                src="https://res.cloudinary.com/skillbees/image/upload/v1615452522/Meal.ly/box_ifs7rr.png"
+                alt="quantity-img"
+              />{" "}
+              {oneOffer.quantity}
+            </p>
+            <p>
+              <img
+                className="offer-icon"
+                src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/clock_snwysd.png"
+                alt="time-img"
+              />{" "}
+              {oneOffer.pickupSlot}
+            </p>
+            <p>
+              <img
+                className="offer-icon"
+                src="https://res.cloudinary.com/skillbees/image/upload/v1615455306/Meal.ly/placeholder_lczeom.png"
+              />
+              {oneOffer.address}
+            </p>
             <ProviderLocation address={oneOffer.address} />
           </div>
           <hr />
           <h4>Pickup Request</h4>
           {oneOffer.status !== "new" ? (
             <>
-              <div>You have requested this offer already</div>
+              <div className="requested-message">
+                <img
+                  style={{ width: "40px" }}
+                  src="https://res.cloudinary.com/skillbees/image/upload/v1615455081/Meal.ly/checked_ejbio8.png"
+                  alt="waiting-img"
+                />
+                <p>You have requested this offer already</p>
+              </div>
             </>
           ) : (
             <>

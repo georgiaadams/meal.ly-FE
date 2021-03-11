@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 120px;
 }
 
 .offer-header {
@@ -47,4 +48,8 @@
 .offer-info p {
   font-size: 15px;
   margin: 1px;
+}
+
+.requested-message {
+  text-align: center;
 }

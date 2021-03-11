@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./ProviderLocation.css";
 
 function ProviderLocation(props) {
   const companyDetails = props;
@@ -11,9 +12,9 @@ function ProviderLocation(props) {
     return linkToDirections;
   };
   return (
-    <div>
+    <div className="location">
       <Link to={{ pathname: getLink(companyDetails) }} target="_blank">
-        Directions
+        <button>Directions</button>
       </Link>
     </div>
   );

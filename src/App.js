@@ -15,12 +15,14 @@ import UserOfferDetails from "./pages/UserOfferDetails/OfferDetails";
 import UserOffers from "./pages/UserOffers/AllOffers";
 import UserRequests from "./pages/UserRequests/UserRequests";
 import UserProfile from "./pages/UserProfile/UserProfile";
+import ProfileEditUser from "./pages/ProfileEdit/ProfileEditUser";
 
 import ProviderHomepage from "./pages/ProviderHomepage/ProviderHomepage";
 import ProviderEditOffer from "./pages/ProviderEditOffer/ProviderEditOffer";
 import ProviderNewOffer from "./pages/ProviderNewOffer/ProviderNewOffer";
 import ProviderOfferDetails from "./pages/ProviderOfferDetails/ProviderOfferDetails";
 import ProviderOffers from "./pages/ProviderOffers/ProviderOffers";
+import ProfileEdit from "./pages/ProfileEdit/ProfileEdit";
 
 import AnonRoute from "./components/AnonRoute/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -88,8 +90,18 @@ class App extends Component {
           <PrivateRoute exact path="/user/profile" component={UserProfile} />
           <PrivateRoute
             exact
+            path="/user/profile/edit"
+            component={ProfileEditUser}
+          />
+          <PrivateRoute
+            exact
             path="/provider/myprofile"
             component={ProviderProfile}
+          />
+          <PrivateRoute
+            exact
+            path="/provider/myprofile/edit"
+            component={ProfileEdit}
           />
         </Switch>
       </div>

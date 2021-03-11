@@ -54,6 +54,24 @@ class ProviderService {
       .then(({ data }) => data);
     return pr;
   };
+
+  getProfile = () => {
+    const pr = this.api.get("/provider/myprofile").then(({ data }) => data);
+    return pr;
+  };
+
+  editProfile = ({ companyName, email, address, phoneNumber, image }) => {
+    const pr = this.api
+      .put("/provider/myprofile/edit", {
+        companyName,
+        email,
+        address,
+        phoneNumber,
+        image,
+      })
+      .then(({ data }) => data);
+    return pr;
+  };
 }
 const providerService = new ProviderService();
 export default providerService;

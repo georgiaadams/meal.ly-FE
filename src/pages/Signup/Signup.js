@@ -12,6 +12,11 @@ class Signup extends Component {
     password: "",
   };
 
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { companyName, address, phoneNumber, email, password } = this.state;
@@ -23,11 +28,6 @@ class Signup extends Component {
       email,
       password
     );
-  };
-
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
   };
 
   render() {
@@ -85,7 +85,10 @@ class Signup extends Component {
             className="signup-address"
             type="text"
             name="address"
-            placeholder="please enter full address: Street, City, Postcode"
+            placeholder="Enter full address:
+            Street, 
+            City, 
+            Postcode"
             value={address}
             onChange={this.handleChange}
           />
@@ -107,6 +110,3 @@ class Signup extends Component {
 }
 
 export default withAuth(Signup);
-
-// const EnhancedSignup = withAuth(Signup)
-// export default EnhancedSignup;

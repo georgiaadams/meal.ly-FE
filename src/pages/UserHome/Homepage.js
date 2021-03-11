@@ -16,7 +16,7 @@ function Homepage() {
 
       <RequestedOffers />
       <Link to={"/user/offers/pending"}>
-        <button>See all requests</button>
+        <button className="see-all-requests">See all requests</button>
       </Link>
       </div>
       <UserBottomNavbar />

@@ -13,7 +13,6 @@ class ProviderNewOffer extends Component {
     date: new Date(),
     pickupSlot: "",
     address: "",
-    image: "",
   };
 
   handleFormSubmit = (event) => {
@@ -25,19 +24,10 @@ class ProviderNewOffer extends Component {
       date,
       pickupSlot,
       address,
-      image,
     } = this.state;
 
     providerService
-      .createOffer(
-        content,
-        quantity,
-        date,
-        pickupSlot,
-        companyName,
-        address,
-        image
-      )
+      .createOffer(content, quantity, date, pickupSlot, companyName, address)
       .then((data) => {
         this.setState({
           companyName: "",
@@ -46,7 +36,6 @@ class ProviderNewOffer extends Component {
           date: new Date(),
           pickupSlot: "",
           address: "",
-          image: "",
         });
         socket.emit("createOffer", data.data);
         this.props.history.push("/provider/offers");
@@ -62,6 +51,15 @@ class ProviderNewOffer extends Component {
   render() {
     const providerInfo = this.props.user;
     console.log(providerInfo);
+    // const providerInfo = this.props.user;
+    const {
+      companyName,
+      content,
+      quantity,
+      date,
+      pickupSlot,
+      address,
+    } = this.state;
 
     return (
       <div className="new-offer-form">
@@ -71,7 +69,7 @@ class ProviderNewOffer extends Component {
           <input
             type="text"
             name="companyName"
-            value={this.state.companyName}
+            value={companyName}
             onChange={this.handleChange}
           />
           <br />
@@ -80,7 +78,7 @@ class ProviderNewOffer extends Component {
           <input
             type="text"
             name="content"
-            value={this.state.content}
+            value={content}
             onChange={this.handleChange}
           />
           <br />
@@ -89,7 +87,7 @@ class ProviderNewOffer extends Component {
           <input
             type="text"
             name="quantity"
-            value={this.state.quantity}
+            value={quantity}
             onChange={this.handleChange}
           />
           <br />
@@ -98,8 +96,7 @@ class ProviderNewOffer extends Component {
           <input
             type="text"
             name="address"
-            // value={providerInfo.address}
-            value={this.state.address}
+            value={address}
             onChange={this.handleChange}
           />
 
@@ -109,7 +106,7 @@ class ProviderNewOffer extends Component {
           <input
             type="date"
             name="date"
-            value={this.state.date}
+            value={date}
             onChange={this.handleChange}
           />
           <br />
@@ -118,7 +115,7 @@ class ProviderNewOffer extends Component {
           <select
             type="text"
             name="pickupSlot"
-            value={this.state.pickupSlot}
+            value={pickupSlot}
             onChange={this.handleChange}
           >
             <option></option>
