@@ -29,7 +29,6 @@ class ProviderHomepage extends React.Component {
       .getAllOffersProvider()
       .then((offers) => {
         const data = offers.filter((offer) => offer.status === "requested");
-        console.log(data);
         this.setState({ requestedOffers: data });
       })
       .catch((err) => console.log(err));
