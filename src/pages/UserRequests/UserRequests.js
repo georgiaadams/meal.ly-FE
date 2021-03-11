@@ -43,15 +43,22 @@ class UserRequests extends Component {
 
     return (
       <div>
-        <h2 style={{marginLeft: '20px', color: '#331832'}}>{this.renderReadyOrRequestedTitle()}</h2>
-        <button className="top-button"
+        <h2 style={{ marginLeft: "20px", color: "#331832" }}>
+          {this.renderReadyOrRequestedTitle()}
+        </h2>
+        <button
+          className="top-button"
           style={{ backgroundColor: "#82aba1", height: "38px", width: "100px" }}
           onClick={() => this.setState({ showingReady: !showingReady })}
         >
           {showingReady ? "Show Requested" : "Show Ready"}
         </button>
         {(showingReady ? readyOffers : requestedOffers).map((offer) => (
-          <div className="requested-offers" style={{ textAlign: "center" }} key={offer._id}>
+          <div
+            className="requested-offers"
+            style={{ textAlign: "center" }}
+            key={offer._id}
+          >
             <p>
               <img
                 className="offer-icon"
@@ -97,7 +104,6 @@ class UserRequests extends Component {
           </div>
         ))}
         <UserBottomNavbar />
-       
       </div>
     );
   }
