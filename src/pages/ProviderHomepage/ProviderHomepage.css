@@ -35,8 +35,8 @@ h3 {
 }
 
 .offers-panel-button {
-  background-color: white;
-  color: #331832;
+  background-color: #694d72;
+  color: white;
   font-family: "Raleway", sans-serif;
   border-style: none;
   border-radius: 10px;
@@ -51,5 +51,7 @@ h3 {
   text-decoration: none;
   color:#331832;
 }
+
+
 
 

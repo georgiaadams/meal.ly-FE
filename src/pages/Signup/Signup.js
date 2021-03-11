@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "./../../context/auth-context";
+import "./Signup.css";
 
 class Signup extends Component {
   state = {
@@ -80,7 +81,7 @@ class Signup extends Component {
           <br />
 
           <label></label>
-          <input
+          <input style={{ height: '60px' }}
             className="signup-address"
             type="text"
             name="address"

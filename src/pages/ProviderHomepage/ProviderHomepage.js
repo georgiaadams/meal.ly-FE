@@ -46,7 +46,7 @@ class ProviderHomepage extends React.Component {
         <Link to={"/provider/offers/new"}>
           <button className="add-new-offer">Add a new offer</button>
         </Link>
-        <h3>Your requested offers:</h3>
+        <h3 style={{ color: 'white' }}>Your requested offers:</h3>
         {requestedOffers.map((offer) => (
           <div className="provider-hp-offers" key={offer._id}>
             <p>
@@ -74,7 +74,7 @@ class ProviderHomepage extends React.Component {
               Pickup time: {offer.pickupSlot}
             </p>
             <Link to={`/provider/offers/${offer._id}`}>
-              <p>
+              <p style={{ color: 'white' }}>
                 Accept pickup{" "}
                 <img
                   className="offer-icon"

@@ -61,6 +61,7 @@ class ProviderNewOffer extends Component {
 
   render() {
     const providerInfo = this.props.user;
+    console.log(providerInfo);
 
     return (
       <div className="new-offer-form">
@@ -74,7 +75,7 @@ class ProviderNewOffer extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <label>What kind of food are you giving away?</label>
+          <label>What are you giving away?</label>
           <br />
           <input
             type="text"
@@ -97,7 +98,7 @@ class ProviderNewOffer extends Component {
           <input
             type="text"
             name="address"
-            value={this.state.address}
+            value={providerInfo.address}
             onChange={this.handleChange}
           />
 

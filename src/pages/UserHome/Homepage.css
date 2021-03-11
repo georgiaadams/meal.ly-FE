@@ -1,18 +1,36 @@
 .homepage {
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .homepage h2 {
   margin-left: 10px;
+  color: #331832;
 }
 
-.homepage button {
+.all-new-offers {
   margin-left: 10px;
   margin-bottom: 10px;
+  background-color: #694d72;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  border-style: none;
+  border-radius: 10px;
+  height: 30px;
+  width: 150px;
+  padding: 0 13px;
+  margin-top: 10px;
 }
 
 .homepage a {
   margin-left: 10px;
   margin-bottom: 10px;
-  color: black;
+  color: #331832;
+}
+
+.bowl-icon {
+  height: 23px;
+  width: auto;
 }

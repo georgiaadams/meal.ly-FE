@@ -20,6 +20,8 @@ class CompletedOffers extends Component {
       .catch((err) => console.log(err));
   }
 
+ 
+
   render() {
     const { completedOffers } = this.state;
     return (

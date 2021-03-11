@@ -8,4 +8,19 @@
 
 .all-offers h2 {
   margin-left: 15px;
+  color: #331832;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.seemore {
+  background-color: #694d72;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  border-style: none;
+  border-radius: 10px;
+  width: 85px;
+  padding: 2px;
+  margin-left: -3px;
+  margin-top: 2px;
 }

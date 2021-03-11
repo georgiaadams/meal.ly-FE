@@ -1,15 +1,21 @@
 .offer-card {
   border: 2px solid #331832;
-  width: 250px;
+  width: 270px;
+  height: 150px;
   margin-left: 10px;
-  padding-left: 10px;
+  padding-left: 5px;
   margin-bottom: 5px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   border-radius: 10px;
+  font-size: x-small;
 }
 
 .offer-card p {
   font-size: 15px;
+}
+
+.offer-card img {
+  padding-right: 5px;
 }

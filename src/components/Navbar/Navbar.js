@@ -22,7 +22,7 @@ class Navbar extends Component {
 
         {isLoggedIn && (
           <>
-            <p>{user && isProviderUser ? user.companyName : user.firstName}</p>
+            <p> Hello {user && isProviderUser ? user.companyName : user.firstName}!</p>
             {/* <img
               src="/profileIcon.png"
               alt="profile"
