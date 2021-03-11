@@ -82,12 +82,54 @@ class ProviderOfferDetails extends Component {
 
     return (
       <div className="provider-oneoffer-details">
-        <p>{offer.content}</p>
-        <p>{offer.quantity}</p>
-        <p>Pickup time: {offer.pickupSlot}</p>
-        <p>Pickup day: {moment(offer.date).format("LL")}</p>
-        <p>Address: {offer.address}</p>
-        <p>Offer status: {offer.status}</p>
+        <p>
+          <img
+            className="offer-icon"
+            src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/healthy-food_jf07wc.png"
+            alt="food-img"
+          />{" "}
+          {offer.content}
+        </p>
+        <p>
+          <img
+            className="offer-icon"
+            src="https://res.cloudinary.com/skillbees/image/upload/v1615452522/Meal.ly/box_ifs7rr.png"
+            alt="quantity-img"
+          />{" "}
+          {offer.quantity}
+        </p>
+        <p>
+          <img
+            className="offer-icon"
+            src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/clock_snwysd.png"
+            alt="time-img"
+          />{" "}
+          {offer.pickupSlot}
+        </p>
+        <p>
+          <img
+            className="offer-icon"
+            src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/calendar_hhbgvr.png"
+            alt="calendar-icon"
+          />{" "}
+          {moment(offer.date).format("LL")}
+        </p>
+        <p>
+          <img
+            className="offer-icon"
+            src="https://res.cloudinary.com/skillbees/image/upload/v1615455306/Meal.ly/placeholder_lczeom.png"
+            alt="address-img"
+          />{" "}
+          {offer.address}
+        </p>
+        <p>
+          <img
+            className="offer-icon"
+            src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/charging-circle_p7sls6.png"
+            alt="waiting-icon"
+          />{" "}
+          Status: {offer.status}
+        </p>
 
         {renderButtons()}
         <BottomNavbar />

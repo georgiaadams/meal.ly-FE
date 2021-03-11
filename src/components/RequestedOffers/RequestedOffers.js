@@ -20,13 +20,41 @@ class RequestedOffers extends Component {
         <h2>Your Requested Offers</h2>
         {pendingOffers.map((pendingOffer) => {
           return (
-            <div>
+            <div className="requested-offer-div">
               <Link to={`/user/offers/${pendingOffer._id}`}>
-                <p>{pendingOffer.companyName}</p>{" "}
+                <p style={{ margin: "0" }}>
+                  <img
+                    className="offer-icon"
+                    src="https://res.cloudinary.com/skillbees/image/upload/v1615452522/Meal.ly/food-stall_irwffa.png"
+                    alt="company-img"
+                  />{" "}
+                  {pendingOffer.companyName}
+                </p>
               </Link>
-              <p>{pendingOffer.content}</p>
-              <p>{pendingOffer.pickupSlot}</p>
-              <p>{moment(pendingOffer.date).format("LL")}</p>
+              <p>
+                <img
+                  className="offer-icon"
+                  src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/healthy-food_jf07wc.png"
+                  alt="food-img"
+                />{" "}
+                {pendingOffer.content}
+              </p>
+              <p>
+                <img
+                  className="offer-icon"
+                  src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/clock_snwysd.png"
+                  alt="clock-icon"
+                />{" "}
+                {pendingOffer.pickupSlot}
+              </p>
+              <p>
+                <img
+                  className="offer-icon"
+                  src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/calendar_hhbgvr.png"
+                  alt="calendar-icon"
+                />{" "}
+                {moment(pendingOffer.date).format("LL")}
+              </p>
             </div>
           );
         })}

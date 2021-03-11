@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  padding-bottom: 150px;
 }
 
 .requested-offers button {
@@ -12,6 +13,8 @@
   height: 30px;
   width: 120px;
   margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .requested-offers h2 {
@@ -22,4 +25,13 @@
 .ready-btn {
   width: 90px;
   height: 33px;
+}
+
+.requested-offers p {
+  font-family: "Raleway", sans-serif;
+  color: #331832;
+  text-align: center;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 5px;
 }

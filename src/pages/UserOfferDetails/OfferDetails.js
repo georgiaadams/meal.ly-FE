@@ -94,6 +94,7 @@ class OfferDetails extends Component {
               <img
                 className="offer-icon"
                 src="https://res.cloudinary.com/skillbees/image/upload/v1615455306/Meal.ly/placeholder_lczeom.png"
+                alt="address-img"
               />
               {oneOffer.address}
             </p>

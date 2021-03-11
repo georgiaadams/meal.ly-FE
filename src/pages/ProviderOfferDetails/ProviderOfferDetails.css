@@ -1,7 +1,7 @@
 .provider-oneoffer-details {
   display: flex;
   flex-direction: column;
-  padding-top: 55px;
+  margin-top: 55px;
 }
 
 .buttons-conditional {
@@ -30,4 +30,8 @@
 .conditional-warning {
   font-size: small;
   padding: 25px;
+}
+
+.provider-oneoffer-details p {
+  margin: 10px;
 }

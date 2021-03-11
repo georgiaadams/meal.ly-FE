@@ -9,20 +9,26 @@ import UserBottomNavbar from "../../components/BottomNavbar/UserBottomNavbar";
 function Homepage() {
   return (
     <div>
-    <div className="homepage">
-    <h2><img className="bowl-icon" src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/healthy-food_jf07wc.png"/> Latest Offers</h2>
-      <Link to={"/user/offers"}><button className="all-new-offers">See all new offers</button></Link>
-      <OfferCard />
+      <div className="homepage">
+        <h2>
+          <img
+            className="bowl-icon"
+            src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/healthy-food_jf07wc.png"
+          />{" "}
+          Latest Offers
+        </h2>
+        <Link to={"/user/offers"}>
+          <button className="all-new-offers">See all new offers</button>
+        </Link>
+        <OfferCard />
 
-      <RequestedOffers />
-      <Link to={"/user/offers/pending"}>
-        <button className="see-all-requests">See all requests</button>
-      </Link>
+        <RequestedOffers />
+        <Link to={"/user/offers/pending"}>
+          <button className="see-all-requests">See all requests</button>
+        </Link>
       </div>
       <UserBottomNavbar />
-     
     </div>
-    
   );
 }
 
