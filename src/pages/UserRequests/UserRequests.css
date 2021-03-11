@@ -17,10 +17,10 @@
   margin-bottom: 20px;
 }
 
-.requested-offers h2 {
+/* .requested-offers h2 {
   font-size: 25px;
   margin-left: 20px;
-}
+} */
 
 .ready-btn {
   width: 90px;
@@ -34,4 +34,11 @@
   padding-left: 25px;
   padding-right: 25px;
   margin-bottom: 5px;
+}
+
+.top-button {
+  margin-left: 20px;
+  border-radius: 5px;
+  color: white;
+  border: none;
 }
