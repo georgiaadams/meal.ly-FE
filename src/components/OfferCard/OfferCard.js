@@ -13,6 +13,16 @@ class OfferCard extends Component {
     socket.on("newOffer", (newOffer) => {
       this.setState({ allOffers: [newOffer, ...this.state.allOffers] });
     });
+    socket.on("offerEdited", (editedOffer) => {
+      const allOffersCopy = [...this.state.allOffers];
+      const editedOfferIndex = allOffersCopy.indexOf(
+        (offer) => offer._id === editedOffer._id
+      );
+      if (editedOfferIndex) {
+        allOffersCopy.splice(editedOfferIndex, 1, editedOffer);
+        this.setState({ allOffers: allOffersCopy });
+      }
+    });
   }
 
   getAllNewOffers = () => {

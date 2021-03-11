@@ -23,12 +23,6 @@ class Navbar extends Component {
         {isLoggedIn && (
           <>
             <p>{user && isProviderUser ? user.companyName : user.firstName}</p>
-            {/* <img
-              src="/profileIcon.png"
-              alt="profile"
-              width="30px"
-              height="30px"
-            /> */}
             <img
               onClick={logout}
               className="logout"

@@ -48,11 +48,18 @@ class UserService {
       .then(({ data }) => data);
     return pr;
   };
+  getProfile = () => {
+    const pr = this.api.get("/user/profile").then(({ data }) => data);
+    return pr;
+  };
+  editProfile = ({ firstName, lastName, email }) => {
+    const pr = this.api
+      .put("/user/profile/edit", { firstName, lastName, email })
+      .then(({ data }) => data);
+    return pr;
+  };
 }
-// Create instance (object) containing all axios calls as methods
+
 const userService = new UserService();
 
 export default userService;
-
-// Service is a set of methods abstracted and placed into a class, out of which we create one instance.
-// In the above case, all axios request calls are abstracted into methods.

@@ -40,6 +40,7 @@ class PickupRequest extends React.Component {
           <label>Name</label>
           <h5>Please let us know who will come to collect 😊</h5>
           <input
+            style={{ height: "25px" }}
             type="text"
             name="username"
             value={username}

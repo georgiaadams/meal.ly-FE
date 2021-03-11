@@ -32,12 +32,12 @@
 .user-navbar {
   background-color: #694d72;
   overflow: hidden;
-  position: fixed;
-  bottom: 0;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  position: fixed;
+  bottom: 0px;
   height: 60px;
 }
 
@@ -49,13 +49,12 @@
   padding: 5px 5px;
   font-size: 14px;
 }
+.user-navbar a {
+  text-decoration: none;
+}
 
 /* @media (hover: hover) and (pointer: fine) {
   .user-navbar p:hover {
     background-color: #331832;
   }
 } */
-
-.user-navbar a {
-  text-decoration: none;
-}

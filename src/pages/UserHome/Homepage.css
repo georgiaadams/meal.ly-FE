@@ -1,18 +1,29 @@
 .homepage {
   background-color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .homepage h2 {
   margin-left: 10px;
+  text-align: center;
 }
 
 .homepage button {
   margin-left: 10px;
   margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #694d72;
+  height: 30px;
+  width: 120px;
 }
 
 .homepage a {
   margin-left: 10px;
   margin-bottom: 10px;
   color: black;
+  align-self: center;
 }

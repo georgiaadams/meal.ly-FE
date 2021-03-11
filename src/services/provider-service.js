@@ -20,14 +20,6 @@ class ProviderService {
     return pr;
   };
 
-<<<<<<< HEAD
-  createOffer = (content, quantity, date, pickupSlot, companyName, address, image) => {
-    const data = { content, quantity, date, pickupSlot, companyName, address, image };
-    const pr = this.api.post("/provider/offers", data);
-    return pr;
-  };
-  editOffer = (id, { companyName, content, quantity, date, pickupSlot, address }) => {
-=======
   createOffer = (
     content,
     quantity,
@@ -53,7 +45,6 @@ class ProviderService {
     id,
     { companyName, content, quantity, date, pickupSlot, address }
   ) => {
->>>>>>> 3ef694be1f3719f1e5cb14b772705395553bf381
     const pr = this.api
       .put(`/provider/offers/${id}`, {
         companyName,
@@ -61,11 +52,7 @@ class ProviderService {
         quantity,
         date,
         pickupSlot,
-<<<<<<< HEAD
-        address
-=======
         address,
->>>>>>> 3ef694be1f3719f1e5cb14b772705395553bf381
       })
       .then((response) => response.data);
     return pr;
@@ -82,6 +69,24 @@ class ProviderService {
     const pr = this.api
       .put("/provider/offers/status/update", {
         offerId,
+      })
+      .then(({ data }) => data);
+    return pr;
+  };
+
+  getProfile = () => {
+    const pr = this.api.get("/provider/myprofile").then(({ data }) => data);
+    return pr;
+  };
+
+  editProfile = ({ companyName, email, address, phoneNumber, image }) => {
+    const pr = this.api
+      .put("/provider/myprofile/edit", {
+        companyName,
+        email,
+        address,
+        phoneNumber,
+        image,
       })
       .then(({ data }) => data);
     return pr;

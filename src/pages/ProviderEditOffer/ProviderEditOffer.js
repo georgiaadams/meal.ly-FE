@@ -3,6 +3,7 @@ import providerService from "../../services/provider-service";
 import { withAuth } from "../../context/auth-context";
 import "./ProviderEditOffer.css";
 import BottomNavbar from "../../components/BottomNavbar/BottomNavbar";
+import socket from "../../services/sockets/socket";
 
 class ProviderEditOffer extends Component {
   state = {
@@ -53,6 +54,8 @@ class ProviderEditOffer extends Component {
           pickupSlot: "",
           address: "",
         });
+
+        socket.emit("editOffer", data);
         this.props.history.push("/provider/offers");
       })
       .catch((err) => console.log(err));

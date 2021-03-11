@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+.edit-profile {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.edit-profile form {
+  font-family: "Raleway", sans-serif;
+  background-color: white;
+}
+
+.edit-profile label {
+  color: #331832;
+}
+
+.edit-profile input {
+  border-radius: 5px;
+  border-style: none;
+  background-color: rgb(214, 214, 214);
+  height: 30px;
+  width: 250px;
+  margin: 6px;
+}
+
+.edit-profile select {
+  border-radius: 5px;
+  border-style: none;
+  background-color: rgb(214, 214, 214);
+  height: 30px;
+  width: 250px;
+}
+
+.edit-profile button {
+  font-family: "Raleway", sans-serif;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  height: 35px;
+  width: 130px;
+  margin-top: 10px;
+  background-color: #694d72;
+  align-self: center;
+}

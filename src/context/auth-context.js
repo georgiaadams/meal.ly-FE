@@ -71,12 +71,10 @@ class AuthProvider extends React.Component {
   };
 
   providerLogin = (email, password) => {
-    return authService
-      .providerLogin(email, password)
-      .then((user) => {
-        const isProviderUser = !!user.companyName;
-        this.setState({ isLoggedIn: true, user: user, isProviderUser });
-      })
+    return authService.providerLogin(email, password).then((user) => {
+      const isProviderUser = !!user.companyName;
+      this.setState({ isLoggedIn: true, user: user, isProviderUser });
+    });
   };
 
   logout = () => {
@@ -87,6 +85,7 @@ class AuthProvider extends React.Component {
       )
       .catch((err) => console.log(err));
   };
+  updateUser = (user) => this.setState({ user });
 
   render() {
     const { isLoggedIn, isLoading, user, isProviderUser } = this.state;
@@ -95,6 +94,7 @@ class AuthProvider extends React.Component {
       userLogin,
       providerSignup,
       providerLogin,
+      updateUser,
       logout,
     } = this;
 
@@ -111,6 +111,7 @@ class AuthProvider extends React.Component {
           userLogin,
           providerSignup,
           providerLogin,
+          updateUser,
           logout,
         }}
       >
@@ -135,6 +136,7 @@ const withAuth = (WrappedComponent) => {
             userLogin,
             providerSignup,
             providerLogin,
+            updateUser,
             logout,
           } = value;
 
@@ -148,6 +150,7 @@ const withAuth = (WrappedComponent) => {
               userLogin={userLogin}
               providerSignup={providerSignup}
               providerLogin={providerLogin}
+              updateUser={updateUser}
               logout={logout}
               {...props}
             />

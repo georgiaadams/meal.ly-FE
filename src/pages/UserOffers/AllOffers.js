@@ -14,9 +14,17 @@ class AllOffers extends React.Component {
   componentDidMount() {
     this.getAllOffers();
     socket.on("newOffer", (newOffer) => {
-      console.log("I AM A NEW OFFER", newOffer);
-
       this.setState({ allOffers: [newOffer, ...this.state.allOffers] });
+    });
+    socket.on("offerEdited", (editedOffer) => {
+      const allOffersCopy = [...this.state.allOffers];
+      const editedOfferIndex = allOffersCopy.indexOf(
+        (offer) => offer._id === editedOffer._id
+      );
+      if (editedOfferIndex) {
+        allOffersCopy.splice(editedOfferIndex, 1, editedOffer);
+        this.setState({ allOffers: allOffersCopy });
+      }
     });
   }
 

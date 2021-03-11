@@ -28,10 +28,39 @@ class CompletedOffers extends Component {
           <h2>Your Completed Orders</h2>
           {completedOffers.map((offer) => (
             <div key={offer._id}>
-              <p>Company: {offer.companyName}</p>
-              <p>Order: {offer.content}</p>
-              <p>Pickup date: {moment(offer.date).format("LL")}</p>
-              <p>Status: {offer.status}</p>
+              <p>
+                <img
+                  className="offer-icon"
+                  src="https://res.cloudinary.com/skillbees/image/upload/v1615452522/Meal.ly/food-stall_irwffa.png"
+                  alt="company-img"
+                />{" "}
+                {""}
+                {offer.companyName}
+              </p>
+              <p>
+                <img
+                  className="offer-icon"
+                  src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/healthy-food_jf07wc.png"
+                  alt="food-img"
+                />{" "}
+                {offer.content}
+              </p>
+              <p>
+                <img
+                  className="offer-icon"
+                  src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/calendar_hhbgvr.png"
+                  alt="calendar-icon"
+                />{" "}
+                {moment(offer.date).format("LL")}
+              </p>
+              <p>
+                <img
+                  className="offer-icon"
+                  src="https://res.cloudinary.com/skillbees/image/upload/v1615134623/Meal.ly/charging-circle_p7sls6.png"
+                  alt="status-icon"
+                />{" "}
+                {offer.status}
+              </p>
               <hr />
             </div>
           ))}
