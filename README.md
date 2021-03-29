@@ -171,3 +171,5 @@ https://trello.com/b/hU59tlkJ/project-3
 https://github.com/georgiaadams/finalProject
 https://github.com/georgiaadams/finalProjectFE
 
+### Deploy
+https://meal-ly.herokuapp.com/
